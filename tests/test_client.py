@@ -145,6 +145,36 @@ def test_access_token_skips_client_credentials_exchange() -> None:
     ]
 
 
+def test_agent_card_payment_token_uses_vault_api() -> None:
+    def handle_request(request: httpx.Request) -> httpx.Response:
+        assert request.url == httpx.URL(
+            "https://vault-api.ramp.com/developer/v1/agent-tools/get-agent-card-creds"
+        )
+        assert request.headers["Authorization"] == "Bearer supplied-token"
+        assert request.headers["X-Idempotency-Key"] == "checkout-attempt-1"
+        return httpx.Response(200, json={})
+
+    client = Ramp(
+        access_token="supplied-token",
+        environment="sandbox",
+        http_client=httpx.Client(transport=httpx.MockTransport(handle_request)),
+    )
+
+    assert (
+        client.agent_tools.agent_cards.create_payment_token(
+            amount="45.00",
+            currency_code="USD",
+            fund_id="fund-uuid",
+            idempotency_key="checkout-attempt-1",
+            merchant_country_code="US",
+            merchant_name="Figma Inc",
+            merchant_url="https://figma.com",
+            rationale="Create a token for the approved checkout",
+        )
+        == {}
+    )
+
+
 def test_async_client_credentials_authenticate_and_send_request() -> None:
     requests: list[httpx.Request] = []
 
@@ -176,6 +206,37 @@ def test_async_client_credentials_authenticate_and_send_request() -> None:
         "/developer/v1/token",
         "/developer/v1/agent-tools/get-agent-card-funds",
     ]
+
+
+def test_async_agent_card_payment_token_uses_vault_api() -> None:
+    def handle_request(request: httpx.Request) -> httpx.Response:
+        assert request.url == httpx.URL(
+            "https://vault-api.ramp.com/developer/v1/agent-tools/get-agent-card-creds"
+        )
+        assert request.headers["Authorization"] == "Bearer supplied-token"
+        assert request.headers["X-Idempotency-Key"] == "checkout-attempt-1"
+        return httpx.Response(200, json={})
+
+    async def run() -> dict[str, object]:
+        client = AsyncRamp(
+            access_token="supplied-token",
+            environment="production",
+            http_client=httpx.AsyncClient(
+                transport=httpx.MockTransport(handle_request)
+            ),
+        )
+        return await client.agent_tools.agent_cards.create_payment_token(
+            amount="45.00",
+            currency_code="USD",
+            fund_id="fund-uuid",
+            idempotency_key="checkout-attempt-1",
+            merchant_country_code="US",
+            merchant_name="Figma Inc",
+            merchant_url="https://figma.com",
+            rationale="Create a token for the approved checkout",
+        )
+
+    assert asyncio.run(run()) == {}
 
 
 def test_async_from_env_uses_client_credentials(

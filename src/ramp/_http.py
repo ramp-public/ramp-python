@@ -25,6 +25,8 @@ _BASE_URLS: dict[Environment, str] = {
     "sandbox": "https://demo-api.ramp.com",
     "production": "https://api.ramp.com",
 }
+_AGENT_CARD_CREDENTIALS_PATH = "/developer/v1/agent-tools/get-agent-card-creds"
+_VAULT_API_BASE_URL = "https://vault-api.ramp.com"
 _TOKEN_PATH = "/developer/v1/token"
 _EXPIRY_SKEW_SECONDS = 30
 
@@ -142,10 +144,15 @@ class HttpxTransport:
             )
         request_headers = {key: str(value) for key, value in (headers or {}).items()}
         request_headers["Authorization"] = f"Bearer {self._get_access_token()}"
+        base_url = (
+            _VAULT_API_BASE_URL
+            if path == _AGENT_CARD_CREDENTIALS_PATH
+            else self._base_url
+        )
         with ExitStack() as stack:
             response = self._client.request(
                 method,
-                f"{self._base_url}{path}",
+                f"{base_url}{path}",
                 params=params,
                 headers=request_headers,
                 json=_jsonable(json),
@@ -238,10 +245,15 @@ class AsyncHttpxTransport:
             )
         request_headers = {key: str(value) for key, value in (headers or {}).items()}
         request_headers["Authorization"] = f"Bearer {await self._get_access_token()}"
+        base_url = (
+            _VAULT_API_BASE_URL
+            if path == _AGENT_CARD_CREDENTIALS_PATH
+            else self._base_url
+        )
         with ExitStack() as stack:
             response = await self._client.request(
                 method,
-                f"{self._base_url}{path}",
+                f"{base_url}{path}",
                 params=params,
                 headers=request_headers,
                 json=_jsonable(json),
