@@ -38,14 +38,20 @@ def test_sync_and_async_clients_have_matching_public_signatures() -> None:
 
     assert sync_signature == async_signature
 
-    sync_agents_signature = inspect.signature(
-        Ramp(transport=RecordingSyncTransport()).agents.list
-    )
-    async_agents_signature = inspect.signature(
-        AsyncRamp(transport=RecordingAsyncTransport()).agents.list
-    )
-
-    assert sync_agents_signature == async_agents_signature
+    sync_agents = Ramp(transport=RecordingSyncTransport()).agents
+    async_agents = AsyncRamp(transport=RecordingAsyncTransport()).agents
+    for method_name in (
+        "create",
+        "delete",
+        "get",
+        "list",
+        "rotate_secret",
+        "set_status",
+        "update",
+    ):
+        assert inspect.signature(
+            getattr(sync_agents, method_name)
+        ) == inspect.signature(getattr(async_agents, method_name))
 
 
 def test_parameterless_operation_is_available_on_complete_surface() -> None:
@@ -266,6 +272,101 @@ def test_standalone_agent_list_uses_query_pagination() -> None:
         "files": None,
         "metadata": OPERATION_METADATA["agents.list"],
     }
+
+
+def test_standalone_agent_lifecycle_uses_developer_api_contract() -> None:
+    transport = RecordingSyncTransport()
+    client = Ramp(transport=transport)
+    agent_id = UUID("8a2c7f2e-5f5e-4f5a-9e2f-2c1c0b9b1a11")
+    role_id = UUID("7c322160-2871-4382-b026-92597ce3ed19")
+
+    assert client.agents.create(
+        name="Procurement Agent",
+        description="Automates approved office-supply purchases",
+        role_ids=[role_id],
+    ) == {"ok": True}
+    assert client.agents.get(agent_id=agent_id) == {"ok": True}
+    assert client.agents.update(
+        agent_id=agent_id,
+        description=None,
+        name="Office Supply Agent",
+    ) == {"ok": True}
+    assert client.agents.set_status(agent_id=agent_id, status="INACTIVE") is None
+    assert client.agents.rotate_secret(agent_id=agent_id) == {"ok": True}
+    assert client.agents.delete(agent_id=agent_id) is None
+
+    assert transport.calls == [
+        {
+            "method": "POST",
+            "path": "/developer/v1/agents",
+            "path_params": None,
+            "params": None,
+            "headers": None,
+            "json": {
+                "description": "Automates approved office-supply purchases",
+                "name": "Procurement Agent",
+                "role_ids": [role_id],
+            },
+            "data": None,
+            "files": None,
+            "metadata": OPERATION_METADATA["agents.create"],
+        },
+        {
+            "method": "GET",
+            "path": "/developer/v1/agents/{agent_id}",
+            "path_params": {"agent_id": agent_id},
+            "params": None,
+            "headers": None,
+            "json": None,
+            "data": None,
+            "files": None,
+            "metadata": OPERATION_METADATA["agents.get"],
+        },
+        {
+            "method": "PATCH",
+            "path": "/developer/v1/agents/{agent_id}",
+            "path_params": {"agent_id": agent_id},
+            "params": None,
+            "headers": None,
+            "json": {"description": None, "name": "Office Supply Agent"},
+            "data": None,
+            "files": None,
+            "metadata": OPERATION_METADATA["agents.update"],
+        },
+        {
+            "method": "POST",
+            "path": "/developer/v1/agents/{agent_id}/status",
+            "path_params": {"agent_id": agent_id},
+            "params": None,
+            "headers": None,
+            "json": {"status": "INACTIVE"},
+            "data": None,
+            "files": None,
+            "metadata": OPERATION_METADATA["agents.set_status"],
+        },
+        {
+            "method": "POST",
+            "path": "/developer/v1/agents/{agent_id}/secret",
+            "path_params": {"agent_id": agent_id},
+            "params": None,
+            "headers": None,
+            "json": None,
+            "data": None,
+            "files": None,
+            "metadata": OPERATION_METADATA["agents.rotate_secret"],
+        },
+        {
+            "method": "DELETE",
+            "path": "/developer/v1/agents/{agent_id}",
+            "path_params": {"agent_id": agent_id},
+            "params": None,
+            "headers": None,
+            "json": None,
+            "data": None,
+            "files": None,
+            "metadata": OPERATION_METADATA["agents.delete"],
+        },
+    ]
 
 
 def test_async_client_awaits_async_transport() -> None:
