@@ -80,16 +80,28 @@ ramp --profile human agent create \
 ```
 
 Store the returned client ID and client secret immediately; the secret is shown
-only once. Export the agent credentials for the SDK:
+only once. Also retain the returned agent ID. Add that agent to the exact shared
+fund it should use; this continues to use the existing fund-membership command:
+
+```bash
+ramp --profile human funds add-user \
+  --spend-allocation-uuid "<approved-fund-id>" \
+  --agent-id "<standalone-agent-id>" \
+  --rationale "Give the procurement agent access to the approved fund"
+```
+
+The human profile must be allowed to edit the fund, and the agent must be active
+and have permission to possess funds. Then export the agent credentials for the
+SDK:
 
 ```bash
 export RAMP_CLIENT_ID="<standalone-agent-client-id>"
 export RAMP_CLIENT_SECRET="<standalone-agent-client-secret>"
 ```
 
-The agent must already be a member of the selected fund. List the funds that
-are eligible for Agent Card issuance, verify the exact fund and checkout
-details, and request one fresh credential for one checkout:
+Using those credentials, list the funds that are eligible for Agent Card
+issuance, verify the exact fund and checkout details, and request one fresh
+credential for one checkout:
 
 ```python
 from uuid import uuid4

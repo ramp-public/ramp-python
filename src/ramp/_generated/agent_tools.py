@@ -1,6 +1,6 @@
 """Generated Ramp Python SDK surface; do not edit by hand.
 
-Source spec SHA-256: 3e6ddcad1afacc297dc867067bbccf3641d78d914582f073d488fd65ade34a45
+Source spec SHA-256: 97f0ea889f8be47ee3faff2f50927d6530e6af19e455991dbf412ce58be55b69
 Overlay SHA-256: d5f3ef06254a037e235f662345d95093b60c900e56b6eec8449a6dad396e922b
 """
 
@@ -5559,13 +5559,14 @@ class AgentToolsFunds:
     def add_user(
         self,
         *,
+        agent_id: UUID | None | NotGiven = NOT_GIVEN,
         enable_sharing_if_needed: bool | NotGiven = NOT_GIVEN,
         rationale: str,
         role: str | NotGiven = NOT_GIVEN,
         spend_allocation_uuid: str,
-        user_email: str,
+        user_email: str | None | NotGiven = NOT_GIVEN,
     ) -> AddUserToSharedFundPublicResult:
-        """Add a user to a shared fund as a member or co-owner (post_agent_tool_api___add_user_to_shared_fund)."""
+        """Add a human user or standalone agent to a shared fund as a member or co-owner (post_agent_tool_api___add_user_to_shared_fund)."""
         return cast(
             AddUserToSharedFundPublicResult,
             self._transport.request(
@@ -5576,6 +5577,7 @@ class AgentToolsFunds:
                 headers=None,
                 json=_without_not_given(
                     {
+                        "agent_id": agent_id,
                         "enable_sharing_if_needed": enable_sharing_if_needed,
                         "rationale": rationale,
                         "role": role,
@@ -6250,13 +6252,14 @@ class AsyncAgentToolsFunds:
     async def add_user(
         self,
         *,
+        agent_id: UUID | None | NotGiven = NOT_GIVEN,
         enable_sharing_if_needed: bool | NotGiven = NOT_GIVEN,
         rationale: str,
         role: str | NotGiven = NOT_GIVEN,
         spend_allocation_uuid: str,
-        user_email: str,
+        user_email: str | None | NotGiven = NOT_GIVEN,
     ) -> AddUserToSharedFundPublicResult:
-        """Add a user to a shared fund as a member or co-owner (post_agent_tool_api___add_user_to_shared_fund)."""
+        """Add a human user or standalone agent to a shared fund as a member or co-owner (post_agent_tool_api___add_user_to_shared_fund)."""
         return cast(
             AddUserToSharedFundPublicResult,
             await self._transport.request(
@@ -6267,6 +6270,7 @@ class AsyncAgentToolsFunds:
                 headers=None,
                 json=_without_not_given(
                     {
+                        "agent_id": agent_id,
                         "enable_sharing_if_needed": enable_sharing_if_needed,
                         "rationale": rationale,
                         "role": role,

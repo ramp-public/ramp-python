@@ -213,6 +213,34 @@ def test_agent_card_payment_token_partitions_idempotency_header() -> None:
     }
 
 
+def test_add_user_to_shared_fund_accepts_standalone_agent_id() -> None:
+    transport = RecordingSyncTransport()
+    client = Ramp(transport=transport)
+    agent_id = UUID("00000000-0000-4000-8000-000000000002")
+
+    client.agent_tools.funds.add_user(
+        agent_id=agent_id,
+        rationale="Give the purchasing agent access to the approved fund",
+        spend_allocation_uuid="00000000-0000-4000-8000-000000000001",
+    )
+
+    assert transport.calls[0] == {
+        "method": "POST",
+        "path": "/developer/v1/agent-tools/add-user-to-shared-fund",
+        "path_params": None,
+        "params": None,
+        "headers": None,
+        "json": {
+            "agent_id": agent_id,
+            "rationale": "Give the purchasing agent access to the approved fund",
+            "spend_allocation_uuid": "00000000-0000-4000-8000-000000000001",
+        },
+        "data": None,
+        "files": None,
+        "metadata": OPERATION_METADATA["agent_tools.funds.add_user"],
+    }
+
+
 def test_agent_wallet_policy_partitions_path_and_body() -> None:
     transport = RecordingSyncTransport()
     client = Ramp(transport=transport)
