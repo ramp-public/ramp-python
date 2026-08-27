@@ -74,9 +74,9 @@ First, create the agent with an existing custom role. The authorizing user must
 be allowed to manage roles and Standalone Agents.
 
 ```bash
-ramp --profile human agent create \
+ramp --env sandbox --profile human agent create \
   --name "Procurement Agent" \
-  --role-id 7c322160-2871-4382-b026-92597ce3ed19
+  --role_ids '["7c322160-2871-4382-b026-92597ce3ed19"]'
 ```
 
 Store the returned client ID and client secret immediately; the secret is shown
@@ -84,9 +84,8 @@ only once. Also retain the returned agent ID. Add that agent to the exact shared
 fund it should use; this continues to use the existing fund-membership command:
 
 ```bash
-ramp --profile human funds add-user \
-  --spend-allocation-uuid "<approved-fund-id>" \
-  --agent-id "<standalone-agent-id>" \
+ramp --env sandbox --profile human funds add-user "<approved-fund-id>" \
+  --agent_id "<standalone-agent-id>" \
   --rationale "Give the procurement agent access to the approved fund"
 ```
 
