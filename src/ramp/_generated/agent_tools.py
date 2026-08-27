@@ -1,7 +1,7 @@
 """Generated Ramp Python SDK surface; do not edit by hand.
 
-Source spec SHA-256: e67d5320bce335c2722fad367b3fb3b94aeb4a5ee6c121df9a7efb4bca275b60
-Overlay SHA-256: eb8f5181f04dcd4a601b524b48c541d7686f3fa31a764bf8233e488c30e29131
+Source spec SHA-256: 97f0ea889f8be47ee3faff2f50927d6530e6af19e455991dbf412ce58be55b69
+Overlay SHA-256: d5f3ef06254a037e235f662345d95093b60c900e56b6eec8449a6dad396e922b
 """
 
 from __future__ import annotations
@@ -22,7 +22,10 @@ from ramp._types import (
 # Response names are sourced from the IR. Full Pydantic model rendering
 # remains separate from resource and method generation.
 AddUserToSharedFundPublicResult: TypeAlias = dict[str, Any]
+Agent: TypeAlias = dict[str, Any]
 AgentCardFundsList: TypeAlias = dict[str, Any]
+AgentCreateResponse: TypeAlias = dict[str, Any]
+AgentCredentials: TypeAlias = dict[str, Any]
 AgentWalletPolicyListResponse: TypeAlias = dict[str, Any]
 AggregatedUsageResponseSchema: TypeAlias = dict[str, Any]
 AiCurrentSpendResponseSchema: TypeAlias = dict[str, Any]
@@ -35,10 +38,13 @@ ApiApplicationResource: TypeAlias = dict[str, Any]
 ApiBankAccountResource: TypeAlias = dict[str, Any]
 ApiFollowupListResource: TypeAlias = dict[str, Any]
 ApiFollowupResource: TypeAlias = dict[str, Any]
+ApiRolesList: TypeAlias = dict[str, Any]
+ApiSourcingUploadDocumentResultJsonMode: TypeAlias = dict[str, Any]
 ArchiveSpendAllocationOutput: TypeAlias = dict[str, Any]
 AskRampExternalResult: TypeAlias = dict[str, Any]
 AttachReceiptSuccess: TypeAlias = dict[str, Any]
 AttachVendorDocumentResult: TypeAlias = dict[str, Any]
+AwardSourcingEventOutput: TypeAlias = dict[str, Any]
 BillActionResult: TypeAlias = dict[str, Any]
 BillApproverReminderResult: TypeAlias = dict[str, Any]
 BillCommentsResult: TypeAlias = dict[str, Any]
@@ -58,12 +64,16 @@ CandidateTripsResult: TypeAlias = dict[str, Any]
 CardActivationResult: TypeAlias = dict[str, Any]
 CardInfoList: TypeAlias = dict[str, Any]
 CardLockResult: TypeAlias = dict[str, Any]
+CardStatementBalanceJsonMode: TypeAlias = dict[str, Any]
 CardUnlockResult: TypeAlias = dict[str, Any]
+CloseSourcingEventOutput: TypeAlias = dict[str, Any]
 CommentPosted: TypeAlias = dict[str, Any]
 CompleteTransactionRevisionResult: TypeAlias = dict[str, Any]
 CreateDepartmentOutput: TypeAlias = dict[str, Any]
 CreateDraftBillResult: TypeAlias = dict[str, Any]
 CreateDraftPayeeResult: TypeAlias = dict[str, Any]
+CreateDraftSpendRequestFromSourcingEventOutput: TypeAlias = dict[str, Any]
+CreateRFXOutput: TypeAlias = dict[str, Any]
 DeclineExplanation: TypeAlias = dict[str, Any]
 DeleteReimbursementSuccess: TypeAlias = dict[str, Any]
 DeleteSpendProgramResult: TypeAlias = dict[str, Any]
@@ -100,9 +110,13 @@ GetMoreToolsResult: TypeAlias = dict[str, Any]
 GetOfficeLocationsResult: TypeAlias = dict[str, Any]
 GetOutstandingReimbursementsSuccess: TypeAlias = dict[str, Any]
 GetPolicyWorkflowBodyPublicSuccess: TypeAlias = dict[str, Any]
+GetRFXDetailOutput: TypeAlias = dict[str, Any]
+GetRFXGradingOverviewOutput: TypeAlias = dict[str, Any]
+GetRFXResponseSummaryOutput: TypeAlias = dict[str, Any]
 GetRampBusinessAccountBalanceOutput: TypeAlias = dict[str, Any]
 GetReimbursementReceiptsSuccess: TypeAlias = dict[str, Any]
 GetReimbursementsResult: TypeAlias = dict[str, Any]
+GetSourcingEventContextOutput: TypeAlias = dict[str, Any]
 GetSyncCommitFailureDetailsResult: TypeAlias = dict[str, Any]
 GetTrackingCategoriesResult: TypeAlias = dict[str, Any]
 GetTrackingCategoryOptionsResult: TypeAlias = dict[str, Any]
@@ -113,6 +127,7 @@ GetVendorAgreementPublicResult: TypeAlias = dict[str, Any]
 GetVendorDocumentBulkStatusResult: TypeAlias = dict[str, Any]
 HotelBookingResult: TypeAlias = dict[str, Any]
 HotelCancellationResponse: TypeAlias = dict[str, Any]
+InviteVendorsToRFXOutput: TypeAlias = dict[str, Any]
 IssueFromSpendProgramResult: TypeAlias = dict[str, Any]
 IssueOneOffFundsResult: TypeAlias = dict[str, Any]
 LimitIncreaseResult: TypeAlias = dict[str, Any]
@@ -121,12 +136,15 @@ ListDepartmentsOutput: TypeAlias = dict[str, Any]
 ListPoliciesSuccess: TypeAlias = dict[str, Any]
 ListProcurementSpendIntentsResult: TypeAlias = dict[str, Any]
 ListSkCategoriesResult: TypeAlias = dict[str, Any]
+ListSourcingEventsOutput: TypeAlias = dict[str, Any]
 ListTravelerLoyaltyProgramsResult: TypeAlias = dict[str, Any]
 ListTreasuryAccountsOutput: TypeAlias = dict[str, Any]
 ListVendorAgreementsResult: TypeAlias = dict[str, Any]
 ListWalletTransfersOutput: TypeAlias = dict[str, Any]
 LockOrUnlockSpendAllocationMemberResult: TypeAlias = dict[str, Any]
 LockOrUnlockSpendAllocationResult: TypeAlias = dict[str, Any]
+ManageRFXCollaboratorsOutput: TypeAlias = dict[str, Any]
+MarkRFXGradedOutput: TypeAlias = dict[str, Any]
 MarkTransactionMissingReceiptResponse: TypeAlias = dict[str, Any]
 OrgChartResponse: TypeAlias = dict[str, Any]
 PaginatedResponseAgentAccountNumberResponse: TypeAlias = dict[str, Any]
@@ -134,6 +152,7 @@ PaginatedResponseAgentSchema: TypeAlias = dict[str, Any]
 PaginatedResponseApiApplicationDocumentResource: TypeAlias = dict[str, Any]
 PaginatedResponseApiBankAccountResource: TypeAlias = dict[str, Any]
 PaginatedResponseApiMerchantResourceSchema: TypeAlias = dict[str, Any]
+PaginatedResponseApiStatementResourceSchema: TypeAlias = dict[str, Any]
 PatchProvisionalBillResult: TypeAlias = dict[str, Any]
 PaymentTokenResult: TypeAlias = dict[str, Any]
 PolicyAnswer: TypeAlias = dict[str, Any]
@@ -146,8 +165,10 @@ PublicAnalystCatalogResponse: TypeAlias = dict[str, Any]
 PublicAnalystMetricMetadataResponse: TypeAlias = dict[str, Any]
 PublicAnalystQueryResponse: TypeAlias = dict[str, Any]
 PublicAnalystTableDomainDocsResponse: TypeAlias = dict[str, Any]
+PublishRFXOutput: TypeAlias = dict[str, Any]
 PurchaseOrderDetails: TypeAlias = dict[str, Any]
 PurchaseOrderSearchResult: TypeAlias = dict[str, Any]
+RFXVendorResponsesOutput: TypeAlias = dict[str, Any]
 ReceiptUploadSuccess: TypeAlias = dict[str, Any]
 RecentReimbursements: TypeAlias = dict[str, Any]
 RecurringBillDetails: TypeAlias = dict[str, Any]
@@ -159,6 +180,8 @@ RemoveUserFromSharedFundPublicResult: TypeAlias = dict[str, Any]
 RenameDepartmentOutput: TypeAlias = dict[str, Any]
 RepaymentRequestResult: TypeAlias = dict[str, Any]
 ResubmitReimbursementSuccess: TypeAlias = dict[str, Any]
+ReturnRFXToDraftOutput: TypeAlias = dict[str, Any]
+RevokeRFXVendorInvitationOutput: TypeAlias = dict[str, Any]
 SearchFlightsResult: TypeAlias = dict[str, Any]
 SearchHelpCenterOutput: TypeAlias = dict[str, Any]
 SearchHotelsResult: TypeAlias = dict[str, Any]
@@ -166,11 +189,16 @@ SearchMerchantsResult: TypeAlias = dict[str, Any]
 SearchReimbursementsResult: TypeAlias = dict[str, Any]
 SearchUserResponse: TypeAlias = dict[str, Any]
 SearchVendorsResult: TypeAlias = dict[str, Any]
+SendRFXResponseReminderOutput: TypeAlias = dict[str, Any]
 SetDeclineBufferResult: TypeAlias = dict[str, Any]
+SetRFXCoverSheetOutput: TypeAlias = dict[str, Any]
+SetRFXPricingSheetOutput: TypeAlias = dict[str, Any]
+SetRFXVendorInvitationContactOutput: TypeAlias = dict[str, Any]
 SetTravelerLoyaltyProgramResult: TypeAlias = dict[str, Any]
 SimplifiedUserDetailResponse: TypeAlias = dict[str, Any]
 SimulatePolicyWorkflowForExpenseSuccess: TypeAlias = dict[str, Any]
 SingleTransaction: TypeAlias = dict[str, Any]
+Statement: TypeAlias = dict[str, Any]
 SubmitAgentNpsResult: TypeAlias = dict[str, Any]
 SubmitDraftBillResult: TypeAlias = dict[str, Any]
 SubmitReimbursementSuccess: TypeAlias = dict[str, Any]
@@ -179,6 +207,8 @@ ToolStringOutput: TypeAlias = dict[str, Any]
 TransactionActionResult: TypeAlias = dict[str, Any]
 TransactionMissingItems: TypeAlias = dict[str, Any]
 TransferSpendAllocationOwnershipPublicResult: TypeAlias = dict[str, Any]
+TravelRequestActionResult: TypeAlias = dict[str, Any]
+TravelRequestListResult: TypeAlias = dict[str, Any]
 TravelerLoyaltyProgramCompatibilityResult: TypeAlias = dict[str, Any]
 TripCreationResult: TypeAlias = dict[str, Any]
 TripListResult: TypeAlias = dict[str, Any]
@@ -188,6 +218,7 @@ UnifiedRequestDetailsOutput: TypeAlias = dict[str, Any]
 UnifiedRequestListResult: TypeAlias = dict[str, Any]
 UpdateCategoryRestrictionsResult: TypeAlias = dict[str, Any]
 UpdateMerchantRestrictionsResult: TypeAlias = dict[str, Any]
+UpdateRFXOutput: TypeAlias = dict[str, Any]
 UpdateSpendAllocationIntervalOutput: TypeAlias = dict[str, Any]
 UpdateTransactionAmountLimitResult: TypeAlias = dict[str, Any]
 UpdateTravelerProfileResult: TypeAlias = dict[str, Any]
@@ -205,6 +236,17 @@ _AGENT_TOOLS_PROCUREMENT_REQUESTS_DELETE_METADATA = OperationMetadata(
     pagination="none",
     safety="write",
     gate="developer_api_procurement_request_agent_tools_enabled",
+)
+
+
+_DEVELOPER_API_AGENTS_DELETE_METADATA = OperationMetadata(
+    operation_id="delete_agent_item_resource",
+    scopes=("agents:write",),
+    platforms=("cli",),
+    stability="beta",
+    pagination="none",
+    safety="destructive",
+    gate="identity_standalone_agents",
 )
 
 
@@ -428,6 +470,17 @@ _DEVELOPER_API_AGENTS_LIST_METADATA = OperationMetadata(
 )
 
 
+_DEVELOPER_API_AGENTS_GET_METADATA = OperationMetadata(
+    operation_id="get_agent_item_resource",
+    scopes=("agents:read",),
+    platforms=("cli",),
+    stability="beta",
+    pagination="none",
+    safety="read_only",
+    gate="identity_standalone_agents",
+)
+
+
 _DEVELOPER_API_APPLICATIONS_GET_METADATA = OperationMetadata(
     operation_id="get_application_resource",
     scopes=("applications:read",),
@@ -513,6 +566,50 @@ _DEVELOPER_API_MERCHANT_LIST_METADATA = OperationMetadata(
     pagination="query_cursor",
     safety="read_only",
     gate=None,
+)
+
+
+_DEVELOPER_API_USERS_ROLES_METADATA = OperationMetadata(
+    operation_id="get_roles_resource",
+    scopes=("users:read",),
+    platforms=("cli", "mcp"),
+    stability="beta",
+    pagination="none",
+    safety="read_only",
+    gate=None,
+)
+
+
+_DEVELOPER_API_STATEMENTS_LIST_METADATA = OperationMetadata(
+    operation_id="get_statement_list_with_pagination",
+    scopes=("statements:read",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="query_cursor",
+    safety="read_only",
+    gate=None,
+)
+
+
+_DEVELOPER_API_STATEMENTS_GET_METADATA = OperationMetadata(
+    operation_id="get_statement_resource",
+    scopes=("statements:read",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="read_only",
+    gate=None,
+)
+
+
+_DEVELOPER_API_AGENTS_UPDATE_METADATA = OperationMetadata(
+    operation_id="patch_agent_item_resource",
+    scopes=("agents:write",),
+    platforms=("cli",),
+    stability="beta",
+    pagination="none",
+    safety="write",
+    gate="identity_standalone_agents",
 )
 
 
@@ -681,6 +778,17 @@ _AGENT_TOOLS_VENDORS_ATTACH_DOCUMENT_METADATA = OperationMetadata(
 )
 
 
+_AGENT_TOOLS_SOURCING_AWARD_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___award_sourcing_event",
+    scopes=("sourcing:write",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="write",
+    gate="developer_api_sourcing_agent_tools_enabled",
+)
+
+
 _AGENT_TOOLS_VENDORS_BULK_UPLOAD_METADATA = OperationMetadata(
     operation_id="post_agent_tool_api___bulk_upload_vendor_documents",
     scopes=("vendors:write",),
@@ -700,6 +808,17 @@ _AGENT_TOOLS_REIMBURSEMENTS_CANCEL_METADATA = OperationMetadata(
     pagination="none",
     safety="write",
     gate=None,
+)
+
+
+_AGENT_TOOLS_SOURCING_CLOSE_EVENT_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___close_sourcing_event",
+    scopes=("sourcing:write",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="destructive",
+    gate="developer_api_sourcing_agent_tools_enabled",
 )
 
 
@@ -736,6 +855,17 @@ _AGENT_TOOLS_BILLS_CREATE_METADATA = OperationMetadata(
 )
 
 
+_AGENT_TOOLS_SOURCING_DRAFT_SPEND_REQUEST_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___create_draft_spend_request_from_sourcing_event",
+    scopes=("sourcing:write",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="write",
+    gate="developer_api_sourcing_agent_tools_enabled",
+)
+
+
 _AGENT_TOOLS_FUNDS_REQUEST_FUNDS_METADATA = OperationMetadata(
     operation_id="post_agent_tool_api___create_fund_request",
     scopes=("funds:write",),
@@ -766,6 +896,17 @@ _AGENT_TOOLS_REIMBURSEMENTS_CREATE_METADATA = OperationMetadata(
     pagination="none",
     safety="write",
     gate=None,
+)
+
+
+_AGENT_TOOLS_SOURCING_CREATE_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___create_rfx",
+    scopes=("sourcing:write",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="write",
+    gate="developer_api_sourcing_agent_tools_enabled",
 )
 
 
@@ -1165,6 +1306,17 @@ _AGENT_TOOLS_TRANSACTIONS_TRIPS_METADATA = OperationMetadata(
 )
 
 
+_AGENT_TOOLS_STATEMENTS_OUTSTANDING_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___get_card_statement_balance",
+    scopes=("statements:read",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="read_only",
+    gate=None,
+)
+
+
 _AGENT_TOOLS_DECLINES_EXPLAIN_METADATA = OperationMetadata(
     operation_id="post_agent_tool_api___get_decline_explanation",
     scopes=("transactions:read",),
@@ -1297,6 +1449,17 @@ _AGENT_TOOLS_REIMBURSEMENTS_OUTSTANDING_METADATA = OperationMetadata(
 )
 
 
+_AGENT_TOOLS_TRAVEL_PENDING_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___get_pending_travel_requests",
+    scopes=("trips:read",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="body_cursor",
+    safety="read_only",
+    gate="travel_request_approvals_agent_tools_enabled",
+)
+
+
 _AGENT_TOOLS_PURCHASE_ORDERS_GET_METADATA = OperationMetadata(
     operation_id="post_agent_tool_api___get_purchase_order_details",
     scopes=("purchase_orders:read",),
@@ -1363,6 +1526,50 @@ _AGENT_TOOLS_REQUESTS_PENDING_METADATA = OperationMetadata(
 )
 
 
+_AGENT_TOOLS_SOURCING_RFX_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___get_rfx_detail",
+    scopes=("sourcing:read",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="read_only",
+    gate="developer_api_sourcing_agent_tools_enabled",
+)
+
+
+_AGENT_TOOLS_SOURCING_GRADING_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___get_rfx_grading_overview",
+    scopes=("sourcing:read",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="read_only",
+    gate="developer_api_sourcing_agent_tools_enabled",
+)
+
+
+_AGENT_TOOLS_SOURCING_SUMMARY_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___get_rfx_response_summary",
+    scopes=("sourcing:read",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="read_only",
+    gate="developer_api_sourcing_agent_tools_enabled",
+)
+
+
+_AGENT_TOOLS_SOURCING_RESPONSES_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___get_rfx_vendor_responses",
+    scopes=("sourcing:read",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="read_only",
+    gate="developer_api_sourcing_agent_tools_enabled",
+)
+
+
 _AGENT_TOOLS_USERS_ME_METADATA = OperationMetadata(
     operation_id="post_agent_tool_api___get_simplified_user_detail",
     scopes=("users:read",),
@@ -1371,6 +1578,17 @@ _AGENT_TOOLS_USERS_ME_METADATA = OperationMetadata(
     pagination="none",
     safety="read_only",
     gate=None,
+)
+
+
+_AGENT_TOOLS_SOURCING_EVENT_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___get_sourcing_event_context",
+    scopes=("sourcing:read",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="read_only",
+    gate="developer_api_sourcing_agent_tools_enabled",
 )
 
 
@@ -1495,6 +1713,17 @@ _AGENT_TOOLS_VENDORS_GET_METADATA = OperationMetadata(
 )
 
 
+_AGENT_TOOLS_SOURCING_INVITE_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___invite_vendors_to_rfx",
+    scopes=("sourcing:write",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="write",
+    gate="developer_api_sourcing_agent_tools_enabled",
+)
+
+
 _AGENT_TOOLS_FUNDS_ISSUE_FROM_PROGRAM_METADATA = OperationMetadata(
     operation_id="post_agent_tool_api___issue_from_spend_program",
     scopes=("funds:write",),
@@ -1547,6 +1776,17 @@ _AGENT_TOOLS_CARDS_LIST_METADATA = OperationMetadata(
     pagination="none",
     safety="read_only",
     gate=None,
+)
+
+
+_AGENT_TOOLS_SOURCING_LIST_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___list_sourcing_events",
+    scopes=("sourcing:read",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="body_cursor",
+    safety="read_only",
+    gate="developer_api_sourcing_agent_tools_enabled",
 )
 
 
@@ -1613,6 +1853,28 @@ _AGENT_TOOLS_FUNDS_LOCK_OR_UNLOCK_SPEND_ALLOCATION_MEMBER_METADATA = OperationMe
     pagination="none",
     safety="write",
     gate=None,
+)
+
+
+_AGENT_TOOLS_SOURCING_COLLABORATORS_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___manage_rfx_collaborators",
+    scopes=("sourcing:write",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="write",
+    gate="developer_api_sourcing_agent_tools_enabled",
+)
+
+
+_AGENT_TOOLS_SOURCING_MARK_GRADED_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___mark_rfx_graded",
+    scopes=("sourcing:write",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="write",
+    gate="developer_api_sourcing_agent_tools_enabled",
 )
 
 
@@ -1726,6 +1988,17 @@ _AGENT_TOOLS_X402_CREATE_METADATA = OperationMetadata(
 )
 
 
+_AGENT_TOOLS_SOURCING_PUBLISH_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___publish_rfx",
+    scopes=("sourcing:write",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="write",
+    gate="developer_api_sourcing_agent_tools_enabled",
+)
+
+
 _AGENT_TOOLS_PURCHASE_ORDERS_RAMP_BULK_CLOSE_PURCHASE_ORDERS_METADATA = (
     OperationMetadata(
         operation_id="post_agent_tool_api___bulk_close_purchase_orders",
@@ -1815,6 +2088,28 @@ _AGENT_TOOLS_REIMBURSEMENTS_RESUBMIT_METADATA = OperationMetadata(
     pagination="none",
     safety="write",
     gate=None,
+)
+
+
+_AGENT_TOOLS_SOURCING_RETURN_TO_DRAFT_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___return_rfx_to_draft",
+    scopes=("sourcing:write",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="write",
+    gate="developer_api_sourcing_agent_tools_enabled",
+)
+
+
+_AGENT_TOOLS_SOURCING_REVOKE_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___revoke_rfx_vendor_invitation",
+    scopes=("sourcing:write",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="destructive",
+    gate="developer_api_sourcing_agent_tools_enabled",
 )
 
 
@@ -1939,6 +2234,17 @@ _AGENT_TOOLS_VENDORS_SEARCH_METADATA = OperationMetadata(
 )
 
 
+_AGENT_TOOLS_SOURCING_REMIND_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___send_rfx_response_reminder",
+    scopes=("sourcing:write",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="write",
+    gate="developer_api_sourcing_agent_tools_enabled",
+)
+
+
 _AGENT_TOOLS_FUNDS_SET_DECLINE_BUFFER_METADATA = OperationMetadata(
     operation_id="post_agent_tool_api___set_decline_buffer",
     scopes=("funds:write",),
@@ -1947,6 +2253,39 @@ _AGENT_TOOLS_FUNDS_SET_DECLINE_BUFFER_METADATA = OperationMetadata(
     pagination="none",
     safety="destructive",
     gate="spend_agent_tools",
+)
+
+
+_AGENT_TOOLS_SOURCING_COVER_SHEET_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___set_rfx_cover_sheet",
+    scopes=("sourcing:write",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="write",
+    gate="developer_api_sourcing_agent_tools_enabled",
+)
+
+
+_AGENT_TOOLS_SOURCING_PRICING_SHEET_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___set_rfx_pricing_sheet",
+    scopes=("sourcing:write",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="write",
+    gate="developer_api_sourcing_agent_tools_enabled",
+)
+
+
+_AGENT_TOOLS_SOURCING_INVITATION_CONTACT_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___set_rfx_vendor_invitation_contact",
+    scopes=("sourcing:write",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="write",
+    gate="developer_api_sourcing_agent_tools_enabled",
 )
 
 
@@ -2060,6 +2399,17 @@ _AGENT_TOOLS_FUNDS_TRANSFER_OWNERSHIP_METADATA = OperationMetadata(
 )
 
 
+_AGENT_TOOLS_TRAVEL_APPROVE_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___travel_request_action",
+    scopes=("trips:write",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="destructive",
+    gate="travel_request_approvals_agent_tools_enabled",
+)
+
+
 _AGENT_TOOLS_FUNDS_UNARCHIVE_METADATA = OperationMetadata(
     operation_id="post_agent_tool_api___unarchive_spend_allocation_tool",
     scopes=("funds:write",),
@@ -2112,6 +2462,17 @@ _AGENT_TOOLS_FUNDS_UPDATE_MERCHANT_RESTRICTIONS_METADATA = OperationMetadata(
     pagination="none",
     safety="write",
     gate=None,
+)
+
+
+_AGENT_TOOLS_SOURCING_EDIT_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___update_rfx",
+    scopes=("sourcing:write",),
+    platforms=("cli", "mcp", "third_party"),
+    stability="beta",
+    pagination="none",
+    safety="write",
+    gate="developer_api_sourcing_agent_tools_enabled",
 )
 
 
@@ -2170,6 +2531,17 @@ _AGENT_TOOLS_RECEIPTS_UPLOAD_METADATA = OperationMetadata(
 )
 
 
+_DEVELOPER_API_SOURCING_UPLOAD_METADATA = OperationMetadata(
+    operation_id="post_agent_tool_api___upload_sourcing_document",
+    scopes=("sourcing:write",),
+    platforms=("cli",),
+    stability="beta",
+    pagination="none",
+    safety="write",
+    gate="developer_api_sourcing_agent_tools_enabled",
+)
+
+
 _AGENT_TOOLS_X402_WITHDRAW_METADATA = OperationMetadata(
     operation_id="post_agent_tool_api___withdraw_x402_wallet",
     scopes=("x402:write",),
@@ -2189,6 +2561,39 @@ _DEVELOPER_API_AGENT_WALLET_PUBLISH_POLICY_METADATA = OperationMetadata(
     pagination="none",
     safety="write",
     gate="agent_wallet_enabled",
+)
+
+
+_DEVELOPER_API_AGENTS_CREATE_METADATA = OperationMetadata(
+    operation_id="post_agent_list_resource",
+    scopes=("agents:write",),
+    platforms=("cli",),
+    stability="beta",
+    pagination="none",
+    safety="write",
+    gate="identity_standalone_agents",
+)
+
+
+_DEVELOPER_API_AGENTS_ROTATE_SECRET_METADATA = OperationMetadata(
+    operation_id="post_agent_rotate_secret_resource",
+    scopes=("agents:write",),
+    platforms=("cli",),
+    stability="beta",
+    pagination="none",
+    safety="write",
+    gate="identity_standalone_agents",
+)
+
+
+_DEVELOPER_API_AGENTS_SET_STATUS_METADATA = OperationMetadata(
+    operation_id="post_agent_status_resource",
+    scopes=("agents:write",),
+    platforms=("cli",),
+    stability="beta",
+    pagination="none",
+    safety="write",
+    gate="identity_standalone_agents",
 )
 
 
@@ -2368,6 +2773,28 @@ OPERATION_METADATA = {
     "agent_tools.requests.pending": _AGENT_TOOLS_REQUESTS_PENDING_METADATA,
     "agent_tools.requests.search": _AGENT_TOOLS_REQUESTS_SEARCH_METADATA,
     "agent_tools.research.help_center": _AGENT_TOOLS_RESEARCH_HELP_CENTER_METADATA,
+    "agent_tools.sourcing.award": _AGENT_TOOLS_SOURCING_AWARD_METADATA,
+    "agent_tools.sourcing.close_event": _AGENT_TOOLS_SOURCING_CLOSE_EVENT_METADATA,
+    "agent_tools.sourcing.collaborators": _AGENT_TOOLS_SOURCING_COLLABORATORS_METADATA,
+    "agent_tools.sourcing.cover_sheet": _AGENT_TOOLS_SOURCING_COVER_SHEET_METADATA,
+    "agent_tools.sourcing.create": _AGENT_TOOLS_SOURCING_CREATE_METADATA,
+    "agent_tools.sourcing.draft_spend_request": _AGENT_TOOLS_SOURCING_DRAFT_SPEND_REQUEST_METADATA,
+    "agent_tools.sourcing.edit": _AGENT_TOOLS_SOURCING_EDIT_METADATA,
+    "agent_tools.sourcing.event": _AGENT_TOOLS_SOURCING_EVENT_METADATA,
+    "agent_tools.sourcing.grading": _AGENT_TOOLS_SOURCING_GRADING_METADATA,
+    "agent_tools.sourcing.invitation_contact": _AGENT_TOOLS_SOURCING_INVITATION_CONTACT_METADATA,
+    "agent_tools.sourcing.invite": _AGENT_TOOLS_SOURCING_INVITE_METADATA,
+    "agent_tools.sourcing.list": _AGENT_TOOLS_SOURCING_LIST_METADATA,
+    "agent_tools.sourcing.mark_graded": _AGENT_TOOLS_SOURCING_MARK_GRADED_METADATA,
+    "agent_tools.sourcing.pricing_sheet": _AGENT_TOOLS_SOURCING_PRICING_SHEET_METADATA,
+    "agent_tools.sourcing.publish": _AGENT_TOOLS_SOURCING_PUBLISH_METADATA,
+    "agent_tools.sourcing.remind": _AGENT_TOOLS_SOURCING_REMIND_METADATA,
+    "agent_tools.sourcing.responses": _AGENT_TOOLS_SOURCING_RESPONSES_METADATA,
+    "agent_tools.sourcing.return_to_draft": _AGENT_TOOLS_SOURCING_RETURN_TO_DRAFT_METADATA,
+    "agent_tools.sourcing.revoke": _AGENT_TOOLS_SOURCING_REVOKE_METADATA,
+    "agent_tools.sourcing.rfx": _AGENT_TOOLS_SOURCING_RFX_METADATA,
+    "agent_tools.sourcing.summary": _AGENT_TOOLS_SOURCING_SUMMARY_METADATA,
+    "agent_tools.statements.outstanding": _AGENT_TOOLS_STATEMENTS_OUTSTANDING_METADATA,
     "agent_tools.tasks.list": _AGENT_TOOLS_TASKS_LIST_METADATA,
     "agent_tools.transactions.approve": _AGENT_TOOLS_TRANSACTIONS_APPROVE_METADATA,
     "agent_tools.transactions.complete_revision": _AGENT_TOOLS_TRANSACTIONS_COMPLETE_REVISION_METADATA,
@@ -2383,6 +2810,7 @@ OPERATION_METADATA = {
     "agent_tools.transactions.search_suggested_users": _AGENT_TOOLS_TRANSACTIONS_SEARCH_SUGGESTED_USERS_METADATA,
     "agent_tools.transactions.trips": _AGENT_TOOLS_TRANSACTIONS_TRIPS_METADATA,
     "agent_tools.travel.add_traveler_loyalty_program": _AGENT_TOOLS_TRAVEL_ADD_TRAVELER_LOYALTY_PROGRAM_METADATA,
+    "agent_tools.travel.approve": _AGENT_TOOLS_TRAVEL_APPROVE_METADATA,
     "agent_tools.travel.book_flight": _AGENT_TOOLS_TRAVEL_BOOK_FLIGHT_METADATA,
     "agent_tools.travel.book_hotel": _AGENT_TOOLS_TRAVEL_BOOK_HOTEL_METADATA,
     "agent_tools.travel.booking_details": _AGENT_TOOLS_TRAVEL_BOOKING_DETAILS_METADATA,
@@ -2397,6 +2825,7 @@ OPERATION_METADATA = {
     "agent_tools.travel.loyalty_program_set": _AGENT_TOOLS_TRAVEL_LOYALTY_PROGRAM_SET_METADATA,
     "agent_tools.travel.loyalty_programs": _AGENT_TOOLS_TRAVEL_LOYALTY_PROGRAMS_METADATA,
     "agent_tools.travel.offices": _AGENT_TOOLS_TRAVEL_OFFICES_METADATA,
+    "agent_tools.travel.pending": _AGENT_TOOLS_TRAVEL_PENDING_METADATA,
     "agent_tools.travel.profile": _AGENT_TOOLS_TRAVEL_PROFILE_METADATA,
     "agent_tools.travel.profile_update": _AGENT_TOOLS_TRAVEL_PROFILE_UPDATE_METADATA,
     "agent_tools.travel.search_flight": _AGENT_TOOLS_TRAVEL_SEARCH_FLIGHT_METADATA,
@@ -2427,7 +2856,13 @@ OPERATION_METADATA = {
     "accounting.mark_ready_to_sync": _DEVELOPER_API_ACCOUNTING_MARK_READY_TO_SYNC_METADATA,
     "agent_wallet.list": _DEVELOPER_API_AGENT_WALLET_LIST_METADATA,
     "agent_wallet.publish_policy": _DEVELOPER_API_AGENT_WALLET_PUBLISH_POLICY_METADATA,
+    "agents.create": _DEVELOPER_API_AGENTS_CREATE_METADATA,
+    "agents.delete": _DEVELOPER_API_AGENTS_DELETE_METADATA,
+    "agents.get": _DEVELOPER_API_AGENTS_GET_METADATA,
     "agents.list": _DEVELOPER_API_AGENTS_LIST_METADATA,
+    "agents.rotate_secret": _DEVELOPER_API_AGENTS_ROTATE_SECRET_METADATA,
+    "agents.set_status": _DEVELOPER_API_AGENTS_SET_STATUS_METADATA,
+    "agents.update": _DEVELOPER_API_AGENTS_UPDATE_METADATA,
     "applications.delete_document": _DEVELOPER_API_APPLICATIONS_DELETE_DOCUMENT_METADATA,
     "applications.documents": _DEVELOPER_API_APPLICATIONS_DOCUMENTS_METADATA,
     "applications.edit": _DEVELOPER_API_APPLICATIONS_EDIT_METADATA,
@@ -2443,9 +2878,13 @@ OPERATION_METADATA = {
     "bank_link.accounts": _DEVELOPER_API_BANK_LINK_ACCOUNTS_METADATA,
     "bank_link.create": _DEVELOPER_API_BANK_LINK_CREATE_METADATA,
     "merchant.list": _DEVELOPER_API_MERCHANT_LIST_METADATA,
+    "sourcing.upload": _DEVELOPER_API_SOURCING_UPLOAD_METADATA,
+    "statements.get": _DEVELOPER_API_STATEMENTS_GET_METADATA,
+    "statements.list": _DEVELOPER_API_STATEMENTS_LIST_METADATA,
     "transactions.split": _DEVELOPER_API_TRANSACTIONS_SPLIT_METADATA,
     "treasury.account_numbers": _DEVELOPER_API_TREASURY_ACCOUNT_NUMBERS_METADATA,
     "treasury.request_funds": _DEVELOPER_API_TREASURY_REQUEST_FUNDS_METADATA,
+    "users.roles": _DEVELOPER_API_USERS_ROLES_METADATA,
 }
 
 
@@ -5120,13 +5559,14 @@ class AgentToolsFunds:
     def add_user(
         self,
         *,
+        agent_id: UUID | None | NotGiven = NOT_GIVEN,
         enable_sharing_if_needed: bool | NotGiven = NOT_GIVEN,
         rationale: str,
         role: str | NotGiven = NOT_GIVEN,
         spend_allocation_uuid: str,
-        user_email: str,
+        user_email: str | None | NotGiven = NOT_GIVEN,
     ) -> AddUserToSharedFundPublicResult:
-        """Add a user to a shared fund as a member or co-owner (post_agent_tool_api___add_user_to_shared_fund)."""
+        """Add a human user or standalone agent to a shared fund as a member or co-owner (post_agent_tool_api___add_user_to_shared_fund)."""
         return cast(
             AddUserToSharedFundPublicResult,
             self._transport.request(
@@ -5137,6 +5577,7 @@ class AgentToolsFunds:
                 headers=None,
                 json=_without_not_given(
                     {
+                        "agent_id": agent_id,
                         "enable_sharing_if_needed": enable_sharing_if_needed,
                         "rationale": rationale,
                         "role": role,
@@ -5811,13 +6252,14 @@ class AsyncAgentToolsFunds:
     async def add_user(
         self,
         *,
+        agent_id: UUID | None | NotGiven = NOT_GIVEN,
         enable_sharing_if_needed: bool | NotGiven = NOT_GIVEN,
         rationale: str,
         role: str | NotGiven = NOT_GIVEN,
         spend_allocation_uuid: str,
-        user_email: str,
+        user_email: str | None | NotGiven = NOT_GIVEN,
     ) -> AddUserToSharedFundPublicResult:
-        """Add a user to a shared fund as a member or co-owner (post_agent_tool_api___add_user_to_shared_fund)."""
+        """Add a human user or standalone agent to a shared fund as a member or co-owner (post_agent_tool_api___add_user_to_shared_fund)."""
         return cast(
             AddUserToSharedFundPublicResult,
             await self._transport.request(
@@ -5828,6 +6270,7 @@ class AsyncAgentToolsFunds:
                 headers=None,
                 json=_without_not_given(
                     {
+                        "agent_id": agent_id,
                         "enable_sharing_if_needed": enable_sharing_if_needed,
                         "rationale": rationale,
                         "role": role,
@@ -9229,6 +9672,1220 @@ class AsyncAgentToolsResearch:
         )
 
 
+class AgentToolsSourcing:
+    def __init__(self, transport: SyncTransport) -> None:
+        self._transport = transport
+
+    def award(
+        self,
+        *,
+        payee_uuid: UUID,
+        rationale: str,
+        sourcing_event_id: UUID,
+    ) -> AwardSourcingEventOutput:
+        """Award the winning vendor for a sourcing event, deciding the event and (post_agent_tool_api___award_sourcing_event)."""
+        return cast(
+            AwardSourcingEventOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/award-sourcing-event",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "payee_uuid": payee_uuid,
+                        "rationale": rationale,
+                        "sourcing_event_id": sourcing_event_id,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_AWARD_METADATA,
+            ),
+        )
+
+    def close_event(
+        self,
+        *,
+        rationale: str,
+        sourcing_event_id: UUID,
+    ) -> CloseSourcingEventOutput:
+        """Close (archive) a sourcing event without awarding a vendor (post_agent_tool_api___close_sourcing_event)."""
+        return cast(
+            CloseSourcingEventOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/close-sourcing-event",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {"rationale": rationale, "sourcing_event_id": sourcing_event_id}
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_CLOSE_EVENT_METADATA,
+            ),
+        )
+
+    def collaborators(
+        self,
+        *,
+        add_user_uuids: Sequence[UUID] | NotGiven = NOT_GIVEN,
+        rationale: str,
+        remove_user_uuids: Sequence[UUID] | NotGiven = NOT_GIVEN,
+        rfx_id: UUID,
+    ) -> ManageRFXCollaboratorsOutput:
+        """Add and/or remove collaborators on an existing RFX (RFI, RFP, or RFQ) (post_agent_tool_api___manage_rfx_collaborators)."""
+        return cast(
+            ManageRFXCollaboratorsOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/manage-rfx-collaborators",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "add_user_uuids": add_user_uuids,
+                        "rationale": rationale,
+                        "remove_user_uuids": remove_user_uuids,
+                        "rfx_id": rfx_id,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_COLLABORATORS_METADATA,
+            ),
+        )
+
+    def cover_sheet(
+        self,
+        *,
+        attachment_ramp_document_ids: Sequence[str] | None | NotGiven = NOT_GIVEN,
+        body_markdown: str | None | NotGiven = NOT_GIVEN,
+        rationale: str,
+        rfx_id: UUID,
+    ) -> SetRFXCoverSheetOutput:
+        """Set or update the vendor-facing cover sheet on a DRAFT RFX (post_agent_tool_api___set_rfx_cover_sheet)."""
+        return cast(
+            SetRFXCoverSheetOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/set-rfx-cover-sheet",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "attachment_ramp_document_ids": attachment_ramp_document_ids,
+                        "body_markdown": body_markdown,
+                        "rationale": rationale,
+                        "rfx_id": rfx_id,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_COVER_SHEET_METADATA,
+            ),
+        )
+
+    def create(
+        self,
+        *,
+        close_date: str | None | NotGiven = NOT_GIVEN,
+        description: str | None | NotGiven = NOT_GIVEN,
+        name: str,
+        rationale: str,
+        response_submission_deadline: str | None | NotGiven = NOT_GIVEN,
+        rfx_type: str | NotGiven = NOT_GIVEN,
+        sections: Sequence[dict[str, Any]],
+        sourcing_event_id: UUID | None | NotGiven = NOT_GIVEN,
+        sourcing_event_name: str | None | NotGiven = NOT_GIVEN,
+    ) -> CreateRFXOutput:
+        """Create a DRAFT RFX questionnaire, optionally creating its parent sourcing (post_agent_tool_api___create_rfx)."""
+        return cast(
+            CreateRFXOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/create-rfx",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "close_date": close_date,
+                        "description": description,
+                        "name": name,
+                        "rationale": rationale,
+                        "response_submission_deadline": response_submission_deadline,
+                        "rfx_type": rfx_type,
+                        "sections": sections,
+                        "sourcing_event_id": sourcing_event_id,
+                        "sourcing_event_name": sourcing_event_name,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_CREATE_METADATA,
+            ),
+        )
+
+    def draft_spend_request(
+        self,
+        *,
+        payee_uuid: UUID | None | NotGiven = NOT_GIVEN,
+        rationale: str,
+        rfx_id: UUID | None | NotGiven = NOT_GIVEN,
+        sourcing_event_id: UUID,
+        spend_intent_uuid: UUID | None | NotGiven = NOT_GIVEN,
+    ) -> CreateDraftSpendRequestFromSourcingEventOutput:
+        """Hand off an awarded sourcing event into procurement intake by drafting a (post_agent_tool_api___create_draft_spend_request_from_sourcing_event)."""
+        return cast(
+            CreateDraftSpendRequestFromSourcingEventOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/create-draft-spend-request-from-sourcing-event",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "payee_uuid": payee_uuid,
+                        "rationale": rationale,
+                        "rfx_id": rfx_id,
+                        "sourcing_event_id": sourcing_event_id,
+                        "spend_intent_uuid": spend_intent_uuid,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_DRAFT_SPEND_REQUEST_METADATA,
+            ),
+        )
+
+    def edit(
+        self,
+        *,
+        close_date: str | None | NotGiven = NOT_GIVEN,
+        description: str | None | NotGiven = NOT_GIVEN,
+        name: str | None | NotGiven = NOT_GIVEN,
+        rationale: str,
+        response_submission_deadline: str | None | NotGiven = NOT_GIVEN,
+        rfx_id: UUID,
+        sections: Sequence[dict[str, Any]],
+    ) -> UpdateRFXOutput:
+        """Update an RFX's name, description, dates, and questionnaire sections (post_agent_tool_api___update_rfx)."""
+        return cast(
+            UpdateRFXOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/update-rfx",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "close_date": close_date,
+                        "description": description,
+                        "name": name,
+                        "rationale": rationale,
+                        "response_submission_deadline": response_submission_deadline,
+                        "rfx_id": rfx_id,
+                        "sections": sections,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_EDIT_METADATA,
+            ),
+        )
+
+    def event(
+        self,
+        *,
+        rationale: str,
+        sourcing_event_id: UUID,
+    ) -> GetSourcingEventContextOutput:
+        """Get a compact summary of a sourcing event, its RFXs, and invited vendors (post_agent_tool_api___get_sourcing_event_context)."""
+        return cast(
+            GetSourcingEventContextOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/get-sourcing-event-context",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {"rationale": rationale, "sourcing_event_id": sourcing_event_id}
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_EVENT_METADATA,
+            ),
+        )
+
+    def grading(
+        self,
+        *,
+        rationale: str,
+        rfx_id: UUID,
+    ) -> GetRFXGradingOverviewOutput:
+        """Get grading outcomes for an RFX: AI-generated grading insights and (post_agent_tool_api___get_rfx_grading_overview)."""
+        return cast(
+            GetRFXGradingOverviewOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/get-rfx-grading-overview",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given({"rationale": rationale, "rfx_id": rfx_id}),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_GRADING_METADATA,
+            ),
+        )
+
+    def invitation_contact(
+        self,
+        *,
+        payee_contact_id: UUID,
+        rationale: str,
+        rfx_vendor_invitation_id: UUID,
+    ) -> SetRFXVendorInvitationContactOutput:
+        """Set or replace the contact on an RFX vendor invitation (post_agent_tool_api___set_rfx_vendor_invitation_contact)."""
+        return cast(
+            SetRFXVendorInvitationContactOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/set-rfx-vendor-invitation-contact",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "payee_contact_id": payee_contact_id,
+                        "rationale": rationale,
+                        "rfx_vendor_invitation_id": rfx_vendor_invitation_id,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_INVITATION_CONTACT_METADATA,
+            ),
+        )
+
+    def invite(
+        self,
+        *,
+        rationale: str,
+        rfx_id: str,
+        vendors: Sequence[dict[str, Any]],
+    ) -> InviteVendorsToRFXOutput:
+        """Invite vendors to an existing RFX so they can receive and respond to the questionnaire (post_agent_tool_api___invite_vendors_to_rfx)."""
+        return cast(
+            InviteVendorsToRFXOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/invite-vendors-to-rfx",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {"rationale": rationale, "rfx_id": rfx_id, "vendors": vendors}
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_INVITE_METADATA,
+            ),
+        )
+
+    def list(
+        self,
+        *,
+        page_cursor: str | None | NotGiven = NOT_GIVEN,
+        page_size: int | NotGiven = NOT_GIVEN,
+        rationale: str,
+    ) -> ListSourcingEventsOutput:
+        """List sourcing events visible to the acting user (post_agent_tool_api___list_sourcing_events)."""
+        return cast(
+            ListSourcingEventsOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/list-sourcing-events",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "page_cursor": page_cursor,
+                        "page_size": page_size,
+                        "rationale": rationale,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_LIST_METADATA,
+            ),
+        )
+
+    def mark_graded(
+        self,
+        *,
+        rationale: str,
+        rfx_id: UUID,
+    ) -> MarkRFXGradedOutput:
+        """Mark a PUBLISHED RFX as graded, which unlocks awarding (post_agent_tool_api___mark_rfx_graded)."""
+        return cast(
+            MarkRFXGradedOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/mark-rfx-graded",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given({"rationale": rationale, "rfx_id": rfx_id}),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_MARK_GRADED_METADATA,
+            ),
+        )
+
+    def pricing_sheet(
+        self,
+        *,
+        attachment_ramp_document_ids: Sequence[str] | None | NotGiven = NOT_GIVEN,
+        currency: str | None | NotGiven = NOT_GIVEN,
+        guidance_markdown: str | None | NotGiven = NOT_GIVEN,
+        rationale: str,
+        rfx_id: UUID,
+    ) -> SetRFXPricingSheetOutput:
+        """Set or update the pricing sheet on a DRAFT RFX during sourcing intake (post_agent_tool_api___set_rfx_pricing_sheet)."""
+        return cast(
+            SetRFXPricingSheetOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/set-rfx-pricing-sheet",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "attachment_ramp_document_ids": attachment_ramp_document_ids,
+                        "currency": currency,
+                        "guidance_markdown": guidance_markdown,
+                        "rationale": rationale,
+                        "rfx_id": rfx_id,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_PRICING_SHEET_METADATA,
+            ),
+        )
+
+    def publish(
+        self,
+        *,
+        rationale: str,
+        rfx_id: UUID,
+    ) -> PublishRFXOutput:
+        """Publish an RFX, sending it externally to every ACTIVE invitation contact (post_agent_tool_api___publish_rfx)."""
+        return cast(
+            PublishRFXOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/publish-rfx",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given({"rationale": rationale, "rfx_id": rfx_id}),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_PUBLISH_METADATA,
+            ),
+        )
+
+    def remind(
+        self,
+        *,
+        rationale: str,
+        rfx_id: UUID,
+        rfx_vendor_invitation_ids: Sequence[UUID] | None | NotGiven = NOT_GIVEN,
+    ) -> SendRFXResponseReminderOutput:
+        """Send response reminder emails to invited vendors who have not yet (post_agent_tool_api___send_rfx_response_reminder)."""
+        return cast(
+            SendRFXResponseReminderOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/send-rfx-response-reminder",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "rationale": rationale,
+                        "rfx_id": rfx_id,
+                        "rfx_vendor_invitation_ids": rfx_vendor_invitation_ids,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_REMIND_METADATA,
+            ),
+        )
+
+    def responses(
+        self,
+        *,
+        rationale: str,
+        rfx_id: UUID,
+    ) -> RFXVendorResponsesOutput:
+        """Return all submitted vendor responses for an RFX (post_agent_tool_api___get_rfx_vendor_responses)."""
+        return cast(
+            RFXVendorResponsesOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/get-rfx-vendor-responses",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given({"rationale": rationale, "rfx_id": rfx_id}),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_RESPONSES_METADATA,
+            ),
+        )
+
+    def return_to_draft(
+        self,
+        *,
+        rationale: str,
+        rfx_id: UUID,
+    ) -> ReturnRFXToDraftOutput:
+        """Return a REJECTED RFX to DRAFT so it can be edited and re-published (post_agent_tool_api___return_rfx_to_draft)."""
+        return cast(
+            ReturnRFXToDraftOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/return-rfx-to-draft",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given({"rationale": rationale, "rfx_id": rfx_id}),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_RETURN_TO_DRAFT_METADATA,
+            ),
+        )
+
+    def revoke(
+        self,
+        *,
+        rationale: str,
+        rfx_vendor_invitation_id: UUID,
+    ) -> RevokeRFXVendorInvitationOutput:
+        """Remove a vendor from an RFX (post_agent_tool_api___revoke_rfx_vendor_invitation)."""
+        return cast(
+            RevokeRFXVendorInvitationOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/revoke-rfx-vendor-invitation",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "rationale": rationale,
+                        "rfx_vendor_invitation_id": rfx_vendor_invitation_id,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_REVOKE_METADATA,
+            ),
+        )
+
+    def rfx(
+        self,
+        *,
+        rationale: str,
+        rfx_id: UUID,
+    ) -> GetRFXDetailOutput:
+        """Get the full configuration of one RFX: questionnaire sections and fields, (post_agent_tool_api___get_rfx_detail)."""
+        return cast(
+            GetRFXDetailOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/get-rfx-detail",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given({"rationale": rationale, "rfx_id": rfx_id}),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_RFX_METADATA,
+            ),
+        )
+
+    def summary(
+        self,
+        *,
+        rationale: str,
+        rfx_id: UUID,
+    ) -> GetRFXResponseSummaryOutput:
+        """Summarize vendor response and grading progress for a specific RFX (post_agent_tool_api___get_rfx_response_summary)."""
+        return cast(
+            GetRFXResponseSummaryOutput,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/get-rfx-response-summary",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given({"rationale": rationale, "rfx_id": rfx_id}),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_SUMMARY_METADATA,
+            ),
+        )
+
+
+class AsyncAgentToolsSourcing:
+    def __init__(self, transport: AsyncTransport) -> None:
+        self._transport = transport
+
+    async def award(
+        self,
+        *,
+        payee_uuid: UUID,
+        rationale: str,
+        sourcing_event_id: UUID,
+    ) -> AwardSourcingEventOutput:
+        """Award the winning vendor for a sourcing event, deciding the event and (post_agent_tool_api___award_sourcing_event)."""
+        return cast(
+            AwardSourcingEventOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/award-sourcing-event",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "payee_uuid": payee_uuid,
+                        "rationale": rationale,
+                        "sourcing_event_id": sourcing_event_id,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_AWARD_METADATA,
+            ),
+        )
+
+    async def close_event(
+        self,
+        *,
+        rationale: str,
+        sourcing_event_id: UUID,
+    ) -> CloseSourcingEventOutput:
+        """Close (archive) a sourcing event without awarding a vendor (post_agent_tool_api___close_sourcing_event)."""
+        return cast(
+            CloseSourcingEventOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/close-sourcing-event",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {"rationale": rationale, "sourcing_event_id": sourcing_event_id}
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_CLOSE_EVENT_METADATA,
+            ),
+        )
+
+    async def collaborators(
+        self,
+        *,
+        add_user_uuids: Sequence[UUID] | NotGiven = NOT_GIVEN,
+        rationale: str,
+        remove_user_uuids: Sequence[UUID] | NotGiven = NOT_GIVEN,
+        rfx_id: UUID,
+    ) -> ManageRFXCollaboratorsOutput:
+        """Add and/or remove collaborators on an existing RFX (RFI, RFP, or RFQ) (post_agent_tool_api___manage_rfx_collaborators)."""
+        return cast(
+            ManageRFXCollaboratorsOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/manage-rfx-collaborators",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "add_user_uuids": add_user_uuids,
+                        "rationale": rationale,
+                        "remove_user_uuids": remove_user_uuids,
+                        "rfx_id": rfx_id,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_COLLABORATORS_METADATA,
+            ),
+        )
+
+    async def cover_sheet(
+        self,
+        *,
+        attachment_ramp_document_ids: Sequence[str] | None | NotGiven = NOT_GIVEN,
+        body_markdown: str | None | NotGiven = NOT_GIVEN,
+        rationale: str,
+        rfx_id: UUID,
+    ) -> SetRFXCoverSheetOutput:
+        """Set or update the vendor-facing cover sheet on a DRAFT RFX (post_agent_tool_api___set_rfx_cover_sheet)."""
+        return cast(
+            SetRFXCoverSheetOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/set-rfx-cover-sheet",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "attachment_ramp_document_ids": attachment_ramp_document_ids,
+                        "body_markdown": body_markdown,
+                        "rationale": rationale,
+                        "rfx_id": rfx_id,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_COVER_SHEET_METADATA,
+            ),
+        )
+
+    async def create(
+        self,
+        *,
+        close_date: str | None | NotGiven = NOT_GIVEN,
+        description: str | None | NotGiven = NOT_GIVEN,
+        name: str,
+        rationale: str,
+        response_submission_deadline: str | None | NotGiven = NOT_GIVEN,
+        rfx_type: str | NotGiven = NOT_GIVEN,
+        sections: Sequence[dict[str, Any]],
+        sourcing_event_id: UUID | None | NotGiven = NOT_GIVEN,
+        sourcing_event_name: str | None | NotGiven = NOT_GIVEN,
+    ) -> CreateRFXOutput:
+        """Create a DRAFT RFX questionnaire, optionally creating its parent sourcing (post_agent_tool_api___create_rfx)."""
+        return cast(
+            CreateRFXOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/create-rfx",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "close_date": close_date,
+                        "description": description,
+                        "name": name,
+                        "rationale": rationale,
+                        "response_submission_deadline": response_submission_deadline,
+                        "rfx_type": rfx_type,
+                        "sections": sections,
+                        "sourcing_event_id": sourcing_event_id,
+                        "sourcing_event_name": sourcing_event_name,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_CREATE_METADATA,
+            ),
+        )
+
+    async def draft_spend_request(
+        self,
+        *,
+        payee_uuid: UUID | None | NotGiven = NOT_GIVEN,
+        rationale: str,
+        rfx_id: UUID | None | NotGiven = NOT_GIVEN,
+        sourcing_event_id: UUID,
+        spend_intent_uuid: UUID | None | NotGiven = NOT_GIVEN,
+    ) -> CreateDraftSpendRequestFromSourcingEventOutput:
+        """Hand off an awarded sourcing event into procurement intake by drafting a (post_agent_tool_api___create_draft_spend_request_from_sourcing_event)."""
+        return cast(
+            CreateDraftSpendRequestFromSourcingEventOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/create-draft-spend-request-from-sourcing-event",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "payee_uuid": payee_uuid,
+                        "rationale": rationale,
+                        "rfx_id": rfx_id,
+                        "sourcing_event_id": sourcing_event_id,
+                        "spend_intent_uuid": spend_intent_uuid,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_DRAFT_SPEND_REQUEST_METADATA,
+            ),
+        )
+
+    async def edit(
+        self,
+        *,
+        close_date: str | None | NotGiven = NOT_GIVEN,
+        description: str | None | NotGiven = NOT_GIVEN,
+        name: str | None | NotGiven = NOT_GIVEN,
+        rationale: str,
+        response_submission_deadline: str | None | NotGiven = NOT_GIVEN,
+        rfx_id: UUID,
+        sections: Sequence[dict[str, Any]],
+    ) -> UpdateRFXOutput:
+        """Update an RFX's name, description, dates, and questionnaire sections (post_agent_tool_api___update_rfx)."""
+        return cast(
+            UpdateRFXOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/update-rfx",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "close_date": close_date,
+                        "description": description,
+                        "name": name,
+                        "rationale": rationale,
+                        "response_submission_deadline": response_submission_deadline,
+                        "rfx_id": rfx_id,
+                        "sections": sections,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_EDIT_METADATA,
+            ),
+        )
+
+    async def event(
+        self,
+        *,
+        rationale: str,
+        sourcing_event_id: UUID,
+    ) -> GetSourcingEventContextOutput:
+        """Get a compact summary of a sourcing event, its RFXs, and invited vendors (post_agent_tool_api___get_sourcing_event_context)."""
+        return cast(
+            GetSourcingEventContextOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/get-sourcing-event-context",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {"rationale": rationale, "sourcing_event_id": sourcing_event_id}
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_EVENT_METADATA,
+            ),
+        )
+
+    async def grading(
+        self,
+        *,
+        rationale: str,
+        rfx_id: UUID,
+    ) -> GetRFXGradingOverviewOutput:
+        """Get grading outcomes for an RFX: AI-generated grading insights and (post_agent_tool_api___get_rfx_grading_overview)."""
+        return cast(
+            GetRFXGradingOverviewOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/get-rfx-grading-overview",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given({"rationale": rationale, "rfx_id": rfx_id}),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_GRADING_METADATA,
+            ),
+        )
+
+    async def invitation_contact(
+        self,
+        *,
+        payee_contact_id: UUID,
+        rationale: str,
+        rfx_vendor_invitation_id: UUID,
+    ) -> SetRFXVendorInvitationContactOutput:
+        """Set or replace the contact on an RFX vendor invitation (post_agent_tool_api___set_rfx_vendor_invitation_contact)."""
+        return cast(
+            SetRFXVendorInvitationContactOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/set-rfx-vendor-invitation-contact",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "payee_contact_id": payee_contact_id,
+                        "rationale": rationale,
+                        "rfx_vendor_invitation_id": rfx_vendor_invitation_id,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_INVITATION_CONTACT_METADATA,
+            ),
+        )
+
+    async def invite(
+        self,
+        *,
+        rationale: str,
+        rfx_id: str,
+        vendors: Sequence[dict[str, Any]],
+    ) -> InviteVendorsToRFXOutput:
+        """Invite vendors to an existing RFX so they can receive and respond to the questionnaire (post_agent_tool_api___invite_vendors_to_rfx)."""
+        return cast(
+            InviteVendorsToRFXOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/invite-vendors-to-rfx",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {"rationale": rationale, "rfx_id": rfx_id, "vendors": vendors}
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_INVITE_METADATA,
+            ),
+        )
+
+    async def list(
+        self,
+        *,
+        page_cursor: str | None | NotGiven = NOT_GIVEN,
+        page_size: int | NotGiven = NOT_GIVEN,
+        rationale: str,
+    ) -> ListSourcingEventsOutput:
+        """List sourcing events visible to the acting user (post_agent_tool_api___list_sourcing_events)."""
+        return cast(
+            ListSourcingEventsOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/list-sourcing-events",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "page_cursor": page_cursor,
+                        "page_size": page_size,
+                        "rationale": rationale,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_LIST_METADATA,
+            ),
+        )
+
+    async def mark_graded(
+        self,
+        *,
+        rationale: str,
+        rfx_id: UUID,
+    ) -> MarkRFXGradedOutput:
+        """Mark a PUBLISHED RFX as graded, which unlocks awarding (post_agent_tool_api___mark_rfx_graded)."""
+        return cast(
+            MarkRFXGradedOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/mark-rfx-graded",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given({"rationale": rationale, "rfx_id": rfx_id}),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_MARK_GRADED_METADATA,
+            ),
+        )
+
+    async def pricing_sheet(
+        self,
+        *,
+        attachment_ramp_document_ids: Sequence[str] | None | NotGiven = NOT_GIVEN,
+        currency: str | None | NotGiven = NOT_GIVEN,
+        guidance_markdown: str | None | NotGiven = NOT_GIVEN,
+        rationale: str,
+        rfx_id: UUID,
+    ) -> SetRFXPricingSheetOutput:
+        """Set or update the pricing sheet on a DRAFT RFX during sourcing intake (post_agent_tool_api___set_rfx_pricing_sheet)."""
+        return cast(
+            SetRFXPricingSheetOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/set-rfx-pricing-sheet",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "attachment_ramp_document_ids": attachment_ramp_document_ids,
+                        "currency": currency,
+                        "guidance_markdown": guidance_markdown,
+                        "rationale": rationale,
+                        "rfx_id": rfx_id,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_PRICING_SHEET_METADATA,
+            ),
+        )
+
+    async def publish(
+        self,
+        *,
+        rationale: str,
+        rfx_id: UUID,
+    ) -> PublishRFXOutput:
+        """Publish an RFX, sending it externally to every ACTIVE invitation contact (post_agent_tool_api___publish_rfx)."""
+        return cast(
+            PublishRFXOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/publish-rfx",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given({"rationale": rationale, "rfx_id": rfx_id}),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_PUBLISH_METADATA,
+            ),
+        )
+
+    async def remind(
+        self,
+        *,
+        rationale: str,
+        rfx_id: UUID,
+        rfx_vendor_invitation_ids: Sequence[UUID] | None | NotGiven = NOT_GIVEN,
+    ) -> SendRFXResponseReminderOutput:
+        """Send response reminder emails to invited vendors who have not yet (post_agent_tool_api___send_rfx_response_reminder)."""
+        return cast(
+            SendRFXResponseReminderOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/send-rfx-response-reminder",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "rationale": rationale,
+                        "rfx_id": rfx_id,
+                        "rfx_vendor_invitation_ids": rfx_vendor_invitation_ids,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_REMIND_METADATA,
+            ),
+        )
+
+    async def responses(
+        self,
+        *,
+        rationale: str,
+        rfx_id: UUID,
+    ) -> RFXVendorResponsesOutput:
+        """Return all submitted vendor responses for an RFX (post_agent_tool_api___get_rfx_vendor_responses)."""
+        return cast(
+            RFXVendorResponsesOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/get-rfx-vendor-responses",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given({"rationale": rationale, "rfx_id": rfx_id}),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_RESPONSES_METADATA,
+            ),
+        )
+
+    async def return_to_draft(
+        self,
+        *,
+        rationale: str,
+        rfx_id: UUID,
+    ) -> ReturnRFXToDraftOutput:
+        """Return a REJECTED RFX to DRAFT so it can be edited and re-published (post_agent_tool_api___return_rfx_to_draft)."""
+        return cast(
+            ReturnRFXToDraftOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/return-rfx-to-draft",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given({"rationale": rationale, "rfx_id": rfx_id}),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_RETURN_TO_DRAFT_METADATA,
+            ),
+        )
+
+    async def revoke(
+        self,
+        *,
+        rationale: str,
+        rfx_vendor_invitation_id: UUID,
+    ) -> RevokeRFXVendorInvitationOutput:
+        """Remove a vendor from an RFX (post_agent_tool_api___revoke_rfx_vendor_invitation)."""
+        return cast(
+            RevokeRFXVendorInvitationOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/revoke-rfx-vendor-invitation",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "rationale": rationale,
+                        "rfx_vendor_invitation_id": rfx_vendor_invitation_id,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_REVOKE_METADATA,
+            ),
+        )
+
+    async def rfx(
+        self,
+        *,
+        rationale: str,
+        rfx_id: UUID,
+    ) -> GetRFXDetailOutput:
+        """Get the full configuration of one RFX: questionnaire sections and fields, (post_agent_tool_api___get_rfx_detail)."""
+        return cast(
+            GetRFXDetailOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/get-rfx-detail",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given({"rationale": rationale, "rfx_id": rfx_id}),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_RFX_METADATA,
+            ),
+        )
+
+    async def summary(
+        self,
+        *,
+        rationale: str,
+        rfx_id: UUID,
+    ) -> GetRFXResponseSummaryOutput:
+        """Summarize vendor response and grading progress for a specific RFX (post_agent_tool_api___get_rfx_response_summary)."""
+        return cast(
+            GetRFXResponseSummaryOutput,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/get-rfx-response-summary",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given({"rationale": rationale, "rfx_id": rfx_id}),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_SOURCING_SUMMARY_METADATA,
+            ),
+        )
+
+
+class AgentToolsStatements:
+    def __init__(self, transport: SyncTransport) -> None:
+        self._transport = transport
+
+    def outstanding(
+        self,
+        *,
+        rationale: str,
+    ) -> CardStatementBalanceJsonMode:
+        """Get a snapshot of the business's most recent card statement balance — (post_agent_tool_api___get_card_statement_balance)."""
+        return cast(
+            CardStatementBalanceJsonMode,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/get-card-statement-balance",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given({"rationale": rationale}),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_STATEMENTS_OUTSTANDING_METADATA,
+            ),
+        )
+
+
+class AsyncAgentToolsStatements:
+    def __init__(self, transport: AsyncTransport) -> None:
+        self._transport = transport
+
+    async def outstanding(
+        self,
+        *,
+        rationale: str,
+    ) -> CardStatementBalanceJsonMode:
+        """Get a snapshot of the business's most recent card statement balance — (post_agent_tool_api___get_card_statement_balance)."""
+        return cast(
+            CardStatementBalanceJsonMode,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/get-card-statement-balance",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given({"rationale": rationale}),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_STATEMENTS_OUTSTANDING_METADATA,
+            ),
+        )
+
+
 class AgentToolsTasks:
     def __init__(self, transport: SyncTransport) -> None:
         self._transport = transport
@@ -10106,6 +11763,37 @@ class AgentToolsTravel:
             ),
         )
 
+    def approve(
+        self,
+        *,
+        action: str,
+        booking_request_id: str,
+        rationale: str,
+        rejection_reason: str | None | NotGiven = NOT_GIVEN,
+    ) -> TravelRequestActionResult:
+        """Approve or reject a travel/booking request (post_agent_tool_api___travel_request_action)."""
+        return cast(
+            TravelRequestActionResult,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/travel-request-action",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "action": action,
+                        "booking_request_id": booking_request_id,
+                        "rationale": rationale,
+                        "rejection_reason": rejection_reason,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_TRAVEL_APPROVE_METADATA,
+            ),
+        )
+
     def book_flight(
         self,
         *,
@@ -10583,6 +12271,35 @@ class AgentToolsTravel:
             ),
         )
 
+    def pending(
+        self,
+        *,
+        next_page_cursor: str | None | NotGiven = NOT_GIVEN,
+        page_size: int | NotGiven = NOT_GIVEN,
+        rationale: str,
+    ) -> TravelRequestListResult:
+        """Retrieves travel/booking requests that are pending approval from the current user (post_agent_tool_api___get_pending_travel_requests)."""
+        return cast(
+            TravelRequestListResult,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/get-pending-travel-requests",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "next_page_cursor": next_page_cursor,
+                        "page_size": page_size,
+                        "rationale": rationale,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_TRAVEL_PENDING_METADATA,
+            ),
+        )
+
     def profile(
         self,
         *,
@@ -10860,6 +12577,37 @@ class AsyncAgentToolsTravel:
                 data=None,
                 files=None,
                 metadata=_AGENT_TOOLS_TRAVEL_ADD_TRAVELER_LOYALTY_PROGRAM_METADATA,
+            ),
+        )
+
+    async def approve(
+        self,
+        *,
+        action: str,
+        booking_request_id: str,
+        rationale: str,
+        rejection_reason: str | None | NotGiven = NOT_GIVEN,
+    ) -> TravelRequestActionResult:
+        """Approve or reject a travel/booking request (post_agent_tool_api___travel_request_action)."""
+        return cast(
+            TravelRequestActionResult,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/travel-request-action",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "action": action,
+                        "booking_request_id": booking_request_id,
+                        "rationale": rationale,
+                        "rejection_reason": rejection_reason,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_TRAVEL_APPROVE_METADATA,
             ),
         )
 
@@ -11337,6 +13085,35 @@ class AsyncAgentToolsTravel:
                 data=None,
                 files=None,
                 metadata=_AGENT_TOOLS_TRAVEL_OFFICES_METADATA,
+            ),
+        )
+
+    async def pending(
+        self,
+        *,
+        next_page_cursor: str | None | NotGiven = NOT_GIVEN,
+        page_size: int | NotGiven = NOT_GIVEN,
+        rationale: str,
+    ) -> TravelRequestListResult:
+        """Retrieves travel/booking requests that are pending approval from the current user (post_agent_tool_api___get_pending_travel_requests)."""
+        return cast(
+            TravelRequestListResult,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/get-pending-travel-requests",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "next_page_cursor": next_page_cursor,
+                        "page_size": page_size,
+                        "rationale": rationale,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_AGENT_TOOLS_TRAVEL_PENDING_METADATA,
             ),
         )
 
@@ -13123,6 +14900,77 @@ class Agents:
     def __init__(self, transport: SyncTransport) -> None:
         self._transport = transport
 
+    def create(
+        self,
+        *,
+        description: str | None | NotGiven = NOT_GIVEN,
+        name: str,
+        owner_id: UUID | None | NotGiven = NOT_GIVEN,
+        role_ids: Sequence[UUID],
+    ) -> AgentCreateResponse:
+        """Create a standalone agent in the authenticated business (post_agent_list_resource)."""
+        return cast(
+            AgentCreateResponse,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agents",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "description": description,
+                        "name": name,
+                        "owner_id": owner_id,
+                        "role_ids": role_ids,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_DEVELOPER_API_AGENTS_CREATE_METADATA,
+            ),
+        )
+
+    def delete(
+        self,
+        *,
+        agent_id: UUID,
+    ) -> None:
+        """Soft-delete a standalone agent and revoke its OAuth client (delete_agent_item_resource)."""
+        self._transport.request(
+            method="DELETE",
+            path="/developer/v1/agents/{agent_id}",
+            path_params=_without_not_given({"agent_id": agent_id}),
+            params=None,
+            headers=None,
+            json=None,
+            data=None,
+            files=None,
+            metadata=_DEVELOPER_API_AGENTS_DELETE_METADATA,
+        )
+        return None
+
+    def get(
+        self,
+        *,
+        agent_id: UUID,
+    ) -> Agent:
+        """Fetch a standalone agent in the authenticated business (get_agent_item_resource)."""
+        return cast(
+            Agent,
+            self._transport.request(
+                method="GET",
+                path="/developer/v1/agents/{agent_id}",
+                path_params=_without_not_given({"agent_id": agent_id}),
+                params=None,
+                headers=None,
+                json=None,
+                data=None,
+                files=None,
+                metadata=_DEVELOPER_API_AGENTS_GET_METADATA,
+            ),
+        )
+
     def list(
         self,
         *,
@@ -13145,10 +14993,154 @@ class Agents:
             ),
         )
 
+    def rotate_secret(
+        self,
+        *,
+        agent_id: UUID,
+    ) -> AgentCredentials:
+        """Rotate a standalone agent's client secret (post_agent_rotate_secret_resource)."""
+        return cast(
+            AgentCredentials,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agents/{agent_id}/secret",
+                path_params=_without_not_given({"agent_id": agent_id}),
+                params=None,
+                headers=None,
+                json=None,
+                data=None,
+                files=None,
+                metadata=_DEVELOPER_API_AGENTS_ROTATE_SECRET_METADATA,
+            ),
+        )
+
+    def set_status(
+        self,
+        *,
+        agent_id: UUID,
+        status: str,
+    ) -> None:
+        """Deactivate or reactivate a standalone agent (post_agent_status_resource)."""
+        self._transport.request(
+            method="POST",
+            path="/developer/v1/agents/{agent_id}/status",
+            path_params=_without_not_given({"agent_id": agent_id}),
+            params=None,
+            headers=None,
+            json=_without_not_given({"status": status}),
+            data=None,
+            files=None,
+            metadata=_DEVELOPER_API_AGENTS_SET_STATUS_METADATA,
+        )
+        return None
+
+    def update(
+        self,
+        *,
+        agent_id: UUID,
+        description: str | None | NotGiven = NOT_GIVEN,
+        name: str | NotGiven = NOT_GIVEN,
+        owner_id: UUID | NotGiven = NOT_GIVEN,
+        role_ids: Sequence[UUID] | NotGiven = NOT_GIVEN,
+    ) -> Agent:
+        """Update a standalone agent's name, description, owner, or custom roles (patch_agent_item_resource)."""
+        return cast(
+            Agent,
+            self._transport.request(
+                method="PATCH",
+                path="/developer/v1/agents/{agent_id}",
+                path_params=_without_not_given({"agent_id": agent_id}),
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "description": description,
+                        "name": name,
+                        "owner_id": owner_id,
+                        "role_ids": role_ids,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_DEVELOPER_API_AGENTS_UPDATE_METADATA,
+            ),
+        )
+
 
 class AsyncAgents:
     def __init__(self, transport: AsyncTransport) -> None:
         self._transport = transport
+
+    async def create(
+        self,
+        *,
+        description: str | None | NotGiven = NOT_GIVEN,
+        name: str,
+        owner_id: UUID | None | NotGiven = NOT_GIVEN,
+        role_ids: Sequence[UUID],
+    ) -> AgentCreateResponse:
+        """Create a standalone agent in the authenticated business (post_agent_list_resource)."""
+        return cast(
+            AgentCreateResponse,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agents",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "description": description,
+                        "name": name,
+                        "owner_id": owner_id,
+                        "role_ids": role_ids,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_DEVELOPER_API_AGENTS_CREATE_METADATA,
+            ),
+        )
+
+    async def delete(
+        self,
+        *,
+        agent_id: UUID,
+    ) -> None:
+        """Soft-delete a standalone agent and revoke its OAuth client (delete_agent_item_resource)."""
+        await self._transport.request(
+            method="DELETE",
+            path="/developer/v1/agents/{agent_id}",
+            path_params=_without_not_given({"agent_id": agent_id}),
+            params=None,
+            headers=None,
+            json=None,
+            data=None,
+            files=None,
+            metadata=_DEVELOPER_API_AGENTS_DELETE_METADATA,
+        )
+        return None
+
+    async def get(
+        self,
+        *,
+        agent_id: UUID,
+    ) -> Agent:
+        """Fetch a standalone agent in the authenticated business (get_agent_item_resource)."""
+        return cast(
+            Agent,
+            await self._transport.request(
+                method="GET",
+                path="/developer/v1/agents/{agent_id}",
+                path_params=_without_not_given({"agent_id": agent_id}),
+                params=None,
+                headers=None,
+                json=None,
+                data=None,
+                files=None,
+                metadata=_DEVELOPER_API_AGENTS_GET_METADATA,
+            ),
+        )
 
     async def list(
         self,
@@ -13169,6 +15161,79 @@ class AsyncAgents:
                 data=None,
                 files=None,
                 metadata=_DEVELOPER_API_AGENTS_LIST_METADATA,
+            ),
+        )
+
+    async def rotate_secret(
+        self,
+        *,
+        agent_id: UUID,
+    ) -> AgentCredentials:
+        """Rotate a standalone agent's client secret (post_agent_rotate_secret_resource)."""
+        return cast(
+            AgentCredentials,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agents/{agent_id}/secret",
+                path_params=_without_not_given({"agent_id": agent_id}),
+                params=None,
+                headers=None,
+                json=None,
+                data=None,
+                files=None,
+                metadata=_DEVELOPER_API_AGENTS_ROTATE_SECRET_METADATA,
+            ),
+        )
+
+    async def set_status(
+        self,
+        *,
+        agent_id: UUID,
+        status: str,
+    ) -> None:
+        """Deactivate or reactivate a standalone agent (post_agent_status_resource)."""
+        await self._transport.request(
+            method="POST",
+            path="/developer/v1/agents/{agent_id}/status",
+            path_params=_without_not_given({"agent_id": agent_id}),
+            params=None,
+            headers=None,
+            json=_without_not_given({"status": status}),
+            data=None,
+            files=None,
+            metadata=_DEVELOPER_API_AGENTS_SET_STATUS_METADATA,
+        )
+        return None
+
+    async def update(
+        self,
+        *,
+        agent_id: UUID,
+        description: str | None | NotGiven = NOT_GIVEN,
+        name: str | NotGiven = NOT_GIVEN,
+        owner_id: UUID | NotGiven = NOT_GIVEN,
+        role_ids: Sequence[UUID] | NotGiven = NOT_GIVEN,
+    ) -> Agent:
+        """Update a standalone agent's name, description, owner, or custom roles (patch_agent_item_resource)."""
+        return cast(
+            Agent,
+            await self._transport.request(
+                method="PATCH",
+                path="/developer/v1/agents/{agent_id}",
+                path_params=_without_not_given({"agent_id": agent_id}),
+                params=None,
+                headers=None,
+                json=_without_not_given(
+                    {
+                        "description": description,
+                        "name": name,
+                        "owner_id": owner_id,
+                        "role_ids": role_ids,
+                    }
+                ),
+                data=None,
+                files=None,
+                metadata=_DEVELOPER_API_AGENTS_UPDATE_METADATA,
             ),
         )
 
@@ -14043,6 +16108,172 @@ class AsyncMerchant:
         )
 
 
+class Sourcing:
+    def __init__(self, transport: SyncTransport) -> None:
+        self._transport = transport
+
+    def upload(
+        self,
+        *,
+        file: FileInput,
+    ) -> ApiSourcingUploadDocumentResultJsonMode:
+        """Upload a document for use as an RFX cover-sheet or pricing-sheet attachment (post_agent_tool_api___upload_sourcing_document)."""
+        return cast(
+            ApiSourcingUploadDocumentResultJsonMode,
+            self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/upload-sourcing-document",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=None,
+                data=None,
+                files=_without_not_given({"file": file}),
+                metadata=_DEVELOPER_API_SOURCING_UPLOAD_METADATA,
+            ),
+        )
+
+
+class AsyncSourcing:
+    def __init__(self, transport: AsyncTransport) -> None:
+        self._transport = transport
+
+    async def upload(
+        self,
+        *,
+        file: FileInput,
+    ) -> ApiSourcingUploadDocumentResultJsonMode:
+        """Upload a document for use as an RFX cover-sheet or pricing-sheet attachment (post_agent_tool_api___upload_sourcing_document)."""
+        return cast(
+            ApiSourcingUploadDocumentResultJsonMode,
+            await self._transport.request(
+                method="POST",
+                path="/developer/v1/agent-tools/upload-sourcing-document",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=None,
+                data=None,
+                files=_without_not_given({"file": file}),
+                metadata=_DEVELOPER_API_SOURCING_UPLOAD_METADATA,
+            ),
+        )
+
+
+class Statements:
+    def __init__(self, transport: SyncTransport) -> None:
+        self._transport = transport
+
+    def get(
+        self,
+        *,
+        statement_id: str,
+    ) -> Statement:
+        """Fetch a statement (get_statement_resource)."""
+        return cast(
+            Statement,
+            self._transport.request(
+                method="GET",
+                path="/developer/v1/statements/{statement_id}",
+                path_params=_without_not_given({"statement_id": statement_id}),
+                params=None,
+                headers=None,
+                json=None,
+                data=None,
+                files=None,
+                metadata=_DEVELOPER_API_STATEMENTS_GET_METADATA,
+            ),
+        )
+
+    def list(
+        self,
+        *,
+        from_date: str | NotGiven = NOT_GIVEN,
+        to_date: str | NotGiven = NOT_GIVEN,
+        start: str | NotGiven = NOT_GIVEN,
+        page_size: int | NotGiven = NOT_GIVEN,
+    ) -> PaginatedResponseApiStatementResourceSchema:
+        """List statements (get_statement_list_with_pagination)."""
+        return cast(
+            PaginatedResponseApiStatementResourceSchema,
+            self._transport.request(
+                method="GET",
+                path="/developer/v1/statements",
+                path_params=None,
+                params=_without_not_given(
+                    {
+                        "from_date": from_date,
+                        "to_date": to_date,
+                        "start": start,
+                        "page_size": page_size,
+                    }
+                ),
+                headers=None,
+                json=None,
+                data=None,
+                files=None,
+                metadata=_DEVELOPER_API_STATEMENTS_LIST_METADATA,
+            ),
+        )
+
+
+class AsyncStatements:
+    def __init__(self, transport: AsyncTransport) -> None:
+        self._transport = transport
+
+    async def get(
+        self,
+        *,
+        statement_id: str,
+    ) -> Statement:
+        """Fetch a statement (get_statement_resource)."""
+        return cast(
+            Statement,
+            await self._transport.request(
+                method="GET",
+                path="/developer/v1/statements/{statement_id}",
+                path_params=_without_not_given({"statement_id": statement_id}),
+                params=None,
+                headers=None,
+                json=None,
+                data=None,
+                files=None,
+                metadata=_DEVELOPER_API_STATEMENTS_GET_METADATA,
+            ),
+        )
+
+    async def list(
+        self,
+        *,
+        from_date: str | NotGiven = NOT_GIVEN,
+        to_date: str | NotGiven = NOT_GIVEN,
+        start: str | NotGiven = NOT_GIVEN,
+        page_size: int | NotGiven = NOT_GIVEN,
+    ) -> PaginatedResponseApiStatementResourceSchema:
+        """List statements (get_statement_list_with_pagination)."""
+        return cast(
+            PaginatedResponseApiStatementResourceSchema,
+            await self._transport.request(
+                method="GET",
+                path="/developer/v1/statements",
+                path_params=None,
+                params=_without_not_given(
+                    {
+                        "from_date": from_date,
+                        "to_date": to_date,
+                        "start": start,
+                        "page_size": page_size,
+                    }
+                ),
+                headers=None,
+                json=None,
+                data=None,
+                files=None,
+                metadata=_DEVELOPER_API_STATEMENTS_LIST_METADATA,
+            ),
+        )
+
+
 class Transactions:
     def __init__(self, transport: SyncTransport) -> None:
         self._transport = transport
@@ -14221,6 +16452,54 @@ class AsyncTreasury:
         )
 
 
+class Users:
+    def __init__(self, transport: SyncTransport) -> None:
+        self._transport = transport
+
+    def roles(
+        self,
+    ) -> ApiRolesList:
+        """List custom roles (get_roles_resource)."""
+        return cast(
+            ApiRolesList,
+            self._transport.request(
+                method="GET",
+                path="/developer/v1/roles",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=None,
+                data=None,
+                files=None,
+                metadata=_DEVELOPER_API_USERS_ROLES_METADATA,
+            ),
+        )
+
+
+class AsyncUsers:
+    def __init__(self, transport: AsyncTransport) -> None:
+        self._transport = transport
+
+    async def roles(
+        self,
+    ) -> ApiRolesList:
+        """List custom roles (get_roles_resource)."""
+        return cast(
+            ApiRolesList,
+            await self._transport.request(
+                method="GET",
+                path="/developer/v1/roles",
+                path_params=None,
+                params=None,
+                headers=None,
+                json=None,
+                data=None,
+                files=None,
+                metadata=_DEVELOPER_API_USERS_ROLES_METADATA,
+            ),
+        )
+
+
 class AgentTools:
     def __init__(self, transport: SyncTransport) -> None:
         self.accounting = AgentToolsAccounting(transport)
@@ -14243,6 +16522,8 @@ class AgentTools:
         self.reimbursements = AgentToolsReimbursements(transport)
         self.requests = AgentToolsRequests(transport)
         self.research = AgentToolsResearch(transport)
+        self.sourcing = AgentToolsSourcing(transport)
+        self.statements = AgentToolsStatements(transport)
         self.tasks = AgentToolsTasks(transport)
         self.transactions = AgentToolsTransactions(transport)
         self.travel = AgentToolsTravel(transport)
@@ -14274,6 +16555,8 @@ class AsyncAgentTools:
         self.reimbursements = AsyncAgentToolsReimbursements(transport)
         self.requests = AsyncAgentToolsRequests(transport)
         self.research = AsyncAgentToolsResearch(transport)
+        self.sourcing = AsyncAgentToolsSourcing(transport)
+        self.statements = AsyncAgentToolsStatements(transport)
         self.tasks = AsyncAgentToolsTasks(transport)
         self.transactions = AsyncAgentToolsTransactions(transport)
         self.travel = AsyncAgentToolsTravel(transport)
@@ -14292,8 +16575,11 @@ class Ramp:
         self.ask_ramp = AskRamp(transport)
         self.bank_link = BankLink(transport)
         self.merchant = Merchant(transport)
+        self.sourcing = Sourcing(transport)
+        self.statements = Statements(transport)
         self.transactions = Transactions(transport)
         self.treasury = Treasury(transport)
+        self.users = Users(transport)
         self.agent_tools = AgentTools(transport)
 
 
@@ -14306,6 +16592,9 @@ class AsyncRamp:
         self.ask_ramp = AsyncAskRamp(transport)
         self.bank_link = AsyncBankLink(transport)
         self.merchant = AsyncMerchant(transport)
+        self.sourcing = AsyncSourcing(transport)
+        self.statements = AsyncStatements(transport)
         self.transactions = AsyncTransactions(transport)
         self.treasury = AsyncTreasury(transport)
+        self.users = AsyncUsers(transport)
         self.agent_tools = AsyncAgentTools(transport)

@@ -61,6 +61,81 @@ generic Developer API client remains business-scoped; passing it to this SDK
 does not turn it into a Standalone Agent. The SDK does not read or transmit the
 legacy `RAMP_AGENT_WALLET_API_KEY` variable.
 
+## Standalone Agent to Agent Card credential
+
+This example uses two distinct identities:
+
+1. The Ramp CLI uses a human, business-scoped profile to create the Standalone
+   Agent.
+2. The Python SDK uses the new agent's show-once credentials to act as that
+   Standalone Agent.
+
+First, create the agent with an existing custom role. The authorizing user must
+be allowed to manage roles and Standalone Agents.
+
+```bash
+ramp --env sandbox --profile human agent create \
+  --name "Procurement Agent" \
+  --role_ids '["7c322160-2871-4382-b026-92597ce3ed19"]'
+```
+
+Store the returned client ID and client secret immediately; the secret is shown
+only once. Also retain the returned agent ID. Add that agent to the exact shared
+fund it should use; this continues to use the existing fund-membership command:
+
+```bash
+ramp --env sandbox --profile human funds add-user "<approved-fund-id>" \
+  --agent_id "<standalone-agent-id>" \
+  --rationale "Give the procurement agent access to the approved fund"
+```
+
+The human profile must be allowed to edit the fund, and the agent must be active
+and have permission to possess funds. Then export the agent credentials for the
+SDK:
+
+```bash
+export RAMP_CLIENT_ID="<standalone-agent-client-id>"
+export RAMP_CLIENT_SECRET="<standalone-agent-client-secret>"
+```
+
+Using those credentials, list the funds that are eligible for Agent Card
+issuance, verify the exact fund and checkout details, and request one fresh
+credential for one checkout:
+
+```python
+from uuid import uuid4
+
+from ramp import Ramp
+
+
+with Ramp.from_env(environment="sandbox") as agent:
+    eligible_funds = agent.agent_tools.agent_cards.list_funds(
+        rationale="Select the approved fund for the office-supplies checkout",
+    )
+
+    # Select and verify an exact fund from eligible_funds before issuance.
+    fund_id = "<approved-fund-id>"
+
+    payment_token = agent.agent_tools.agent_cards.create_payment_token(
+        amount="45.00",
+        currency_code="USD",
+        fund_id=fund_id,
+        idempotency_key=str(uuid4()),
+        merchant_country_code="US",
+        merchant_name="Example Office Supply",
+        merchant_url="https://merchant.example",
+        rationale="Issue one credential for the approved $45.00 checkout",
+    )
+
+    # Keep payment_token in memory and submit it once to the intended checkout.
+    # Do not print, log, persist, or retry an ambiguous issuance.
+```
+
+`create_payment_token` calls the historical `get_agent_card_creds` operation,
+but it is a one-time credential issuance rather than a read-only GET. A new
+idempotency key is required for a new checkout attempt. Do not automatically
+retry after an ambiguous response.
+
 ## Safety and permissions
 
 The generated client includes read, write, destructive, and feature-gated
